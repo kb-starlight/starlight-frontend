@@ -1,7 +1,7 @@
 <template>
   <div class="header_container">
     <div class="header_left_container">
-      <div>Logo</div>
+      <img class="logo" :src="logo" />
     </div>
 
     <div class="header_center_container">
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import logo from "../assets/logo.png";
 export default {
   name: "NavHeader",
   setup() {
@@ -31,6 +32,7 @@ export default {
 
     return {
       menu,
+      logo,
     };
   },
 };
@@ -54,5 +56,13 @@ export default {
 .header_right_container a,
 .header_center_container a {
   padding: 0 25px;
+}
+
+.header_left_container {
+  display: flex;
+  align-items: center;
+}
+.header_left_container .logo {
+  width: 200px;
 }
 </style>
