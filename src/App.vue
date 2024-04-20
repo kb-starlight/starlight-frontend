@@ -3,6 +3,7 @@
   <main>
     <router-view />
   </main>
+  <footer></footer>
 </template>
 
 <script>
