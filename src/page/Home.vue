@@ -82,6 +82,7 @@ export default {
 <style scoped>
 .content-layout {
   padding: 30px;
+  overflow: auto;
 }
 h3 {
   font-size: 25px;
