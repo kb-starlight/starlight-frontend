@@ -40,6 +40,7 @@ export default {
 
     const infiniteScroll = () => {
       setTimeout(() => {
+        if (!slide.value) return;
         clickRight();
         infiniteScroll();
       }, 3 * 1000);

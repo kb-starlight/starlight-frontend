@@ -1,19 +1,17 @@
 <template>
   <Header />
-  <div>
-    <SlideView />
-  </div>
+  <main>
+    <router-view />
+  </main>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import SlideView from "./components/SideView.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    SlideView,
   },
 };
 </script>
