@@ -24,4 +24,8 @@ body {
   padding: 0;
   height: 100%;
 }
+
+#app {
+  min-width: 1440px;
+}
 </style>
