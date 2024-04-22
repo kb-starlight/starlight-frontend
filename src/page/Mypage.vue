@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="memList[0]">
     마이페이지<br />
     이름 : {{ memList[0].name }} <br />
     전화번호 : {{ memList[0].phone }} <br />
