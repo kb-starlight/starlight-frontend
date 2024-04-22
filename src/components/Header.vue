@@ -19,7 +19,7 @@
         <router-link to="/login"> 로그인 </router-link>
       </div>
       <div  v-else> 
-        <span @click="logout" >로그아웃 </span>
+        <span @click="sw()" >로그아웃 </span>
       </div>
     </div>
   </nav>
