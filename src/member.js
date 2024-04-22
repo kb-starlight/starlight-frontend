@@ -4,7 +4,6 @@ const store = createStore({
     // eslint-disable-next-line prettier/prettier
         userInfo: new Array(),    
         isLogin : false,
-
       },
   mutations: {
     addInfo(state, obj) {
@@ -27,9 +26,6 @@ const store = createStore({
     getIsLogin(state){
       return state.isLogin;
     },
-    getUserLength(state){
-      return state.userInfo.length;
-    }
   },
 });
 export default store;

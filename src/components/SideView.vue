@@ -5,12 +5,10 @@
         <img :style="{ background: background }" />
       </div>
     </div>
-
     <button class="prev" @click="clickLeft" />
     <button class="next" @click="clickRight" />
   </div>
 </template>
-
 <script>
 import { onMounted, ref } from "vue";
 export default {
@@ -24,32 +22,34 @@ export default {
       { id: "event_3", background: "#88B04B" },
     ];
     const slideSize = slideData.length;
-
+    let currentSlideIndex = 0;
     const clickLeft = () => {
       const { width = 0 } = slide.value?.getBoundingClientRect() || {};
       const targetX1 = slide.value.scrollLeft - width;
       const targetX2 = targetX1 < 0 ? width * slideSize + targetX1 : targetX1;
       slide.value.scrollLeft = targetX2 % (width * slideSize);
     };
-
     const clickRight = () => {
       const { width = 0 } = slide.value?.getBoundingClientRect() || {};
       const targetX = slide.value.scrollLeft + width;
       slide.value.scrollLeft = targetX % (width * slideSize);
     };
-
     const infiniteScroll = () => {
       setTimeout(() => {
         if (!slide.value) return;
-        clickRight();
+        currentSlideIndex++;
+        if (currentSlideIndex >= slideSize) {
+          slide.value.scrollLeft = 0;
+          currentSlideIndex = 0;
+        } else {
+          clickRight();
+        }
         infiniteScroll();
       }, 3 * 1000);
     };
-
     onMounted(() => {
       infiniteScroll();
     });
-
     return {
       slide,
       slideData,
@@ -59,7 +59,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .slide-wrapper {
   position: relative;
@@ -90,7 +89,6 @@ button.prev {
   left: 0;
   top: calc(50% - 32px);
   background-color: rgba(0, 0, 0, 0.15);
-
   width: 40px;
   height: 64px;
   outline: none;
@@ -102,14 +100,12 @@ button.next {
   right: 0;
   top: calc(50% - 32px);
   background-color: rgba(0, 0, 0, 0.15);
-
   width: 40px;
   height: 64px;
   outline: none;
   border: none;
   cursor: pointer;
 }
-
 button.prev::before {
   content: "";
   position: absolute;
@@ -122,7 +118,6 @@ button.prev::before {
   border-left: 1px solid #fff;
   border-bottom: 1px solid #fff;
 }
-
 button.next::before {
   content: "";
   position: absolute;

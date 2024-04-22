@@ -8,6 +8,7 @@ import CompanyPage from "./page/Company.vue";
 import loginPage from "./page/Login.vue";
 import joinPage from "./page/Join.vue";
 import MyPage from "./page/Mypage.vue";
+import Newstory from "./page/Newstory.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomePage },
@@ -17,7 +18,8 @@ const routes = [
   { path: "/company", name: "company", component: CompanyPage },
   { path: "/login", name: "login", component: loginPage},
   { path: "/join", name: "join", component: joinPage},
-  { path: "/mypage", name: "mypage", component: MyPage}
+  { path: "/mypage", name: "mypage", component: MyPage},
+  { path: "/Newstory", name: "Newstory", component: Newstory },
 ];
 
 const router = createRouter({

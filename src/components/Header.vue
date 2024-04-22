@@ -62,6 +62,7 @@ export default {
    methods: {
     sw(){
       alert("정상적으로 로그아웃 되었습니다.");
+      this.$router.push('/');
       this.$store.commit('onOff');
       this.$store.commit('resetInfo');
     }
