@@ -16,9 +16,9 @@ const routes = [
   { path: "/story", name: "story", component: StoryPage },
   { path: "/volunteer", name: "volunteer", component: VolunteerPage },
   { path: "/company", name: "company", component: CompanyPage },
-  { path: "/login", name: "login", component: loginPage},
-  { path: "/join", name: "join", component: joinPage},
-  { path: "/mypage", name: "mypage", component: MyPage},
+  { path: "/login", name: "login", component: loginPage },
+  { path: "/join", name: "join", component: joinPage },
+  { path: "/mypage", name: "mypage", component: MyPage },
   { path: "/Newstory", name: "Newstory", component: Newstory },
 ];
 

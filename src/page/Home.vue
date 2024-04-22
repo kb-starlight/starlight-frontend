@@ -160,12 +160,12 @@ h3 {
   display: block;
   height: 53px;
   padding-top: 20px;
-  border: 1px solid #65DB7F;
+  border: 1px solid #65db7f;
   border-radius: 26px;
   font-family: NanumSquareWebFont, dotum, Sans-serif;
   font-size: 17px;
   font-weight: 700;
-  color: #00AB33;
+  color: #00ab33;
   text-align: center;
   text-decoration: none;
   line-height: 30px;
@@ -173,7 +173,7 @@ h3 {
 .footer {
   position: relative;
   padding: 22px 0 50px;
-  border-top: 1px solid #F0F0F0;
+  border-top: 1px solid #f0f0f0;
   background-color: #fff;
   font-size: 14px;
   color: #828282;

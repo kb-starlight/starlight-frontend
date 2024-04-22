@@ -12,14 +12,14 @@
     </div>
 
     <div class="header_right_container">
-      <div   v-if="login">
-        <router-link to="/mypage" > 마이페이지 </router-link>
+      <div v-if="login">
+        <router-link to="/mypage"> 마이페이지 </router-link>
       </div>
       <div v-if="!login">
         <router-link to="/login"> 로그인 </router-link>
       </div>
-      <div  v-else> 
-        <span @click="sw()" >로그아웃 </span>
+      <div v-else>
+        <span @click="sw()">로그아웃 </span>
       </div>
     </div>
   </nav>
@@ -45,30 +45,28 @@ export default {
   },
   data() {
     return {
-      login : false,
-    }
-   },
-   watch: {
-    onOff(){
+      login: false,
+    };
+  },
+  watch: {
+    onOff() {
       // alert('로그인 또는 로그아웃');
       this.login = this.onOff;
-    }
-   },
-   computed:{
-     onOff(){
+    },
+  },
+  computed: {
+    onOff() {
       return this.$store.getters.getIsLogin;
     },
-   },
-   methods: {
-    sw(){
+  },
+  methods: {
+    sw() {
       alert("정상적으로 로그아웃 되었습니다.");
-      this.$router.push('/');
-      this.$store.commit('onOff');
-      this.$store.commit('resetInfo');
-    }
-   },
-
-
+      this.$router.push("/");
+      this.$store.commit("onOff");
+      this.$store.commit("resetInfo");
+    },
+  },
 };
 </script>
 
