@@ -79,8 +79,7 @@ export default {
   },
 };
 </script>
-<<<<<<< HEAD
-=======
+
 <style >
 .my-page {
   display: flex;
@@ -125,4 +124,3 @@ strong {
   height: 800px;
 }
 </style>
->>>>>>> c2ebe60c62c4362a9945b201df5a0c77f8250771
