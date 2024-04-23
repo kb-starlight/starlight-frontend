@@ -1,5 +1,14 @@
 <template>
-  <div class="my-page" v-if="memList[0] ">
+  
+  <!-- 관리자로 로그인시 보이는 페이지 -->
+  <div class="back" v-if="memList[0]&&admin">
+  <div class="admin" >
+    <h2>관리자 페이지</h2>
+  </div>
+  </div>
+  <!-- 여기부터 일반 회원이 로그인시에 보이는 페이지 -->
+  <div v-if="memList[0]&&!admin">
+  <div class="my-page" >
     <div id="left" class="left">
       <h2>{{ memList[0].name }}님! 안녕하세요!</h2>
     </div>
@@ -20,6 +29,7 @@
   <br><h3><span>내가 올린 게시글</span></h3>
   <div></div>
   <br><h3><span>신청한 봉사내역</span></h3>
+</div>
 </template>
 <script>
 export default {
@@ -27,10 +37,15 @@ export default {
   data() {
     return {
       login: false,
+      admin: false,
+      memList:[],
     };
   },
   computed: {
     memList() {
+      if(this.$store.getters.getUserInfo[0]&&this.$store.getters.getUserInfo[0].member_no==5000){
+        this.admin = true
+      }
       return this.$store.getters.getUserInfo;
     },
   },
@@ -64,11 +79,22 @@ export default {
 .section {
   margin-bottom: 20px;
 }
-h2,
 h3 {
   color: #333;
 }
 strong {
   font-weight: bold;
+}
+.admin{
+  width: 70%;
+  height: 500px;
+  background-color: #CAE8DE;
+}
+.back{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 800px;
 }
 </style>
