@@ -27,27 +27,51 @@
     </div>
   </div>
   <br><h3><span>내가 올린 게시글</span></h3>
-  <div></div>
+  <div v-for="li in list" :key="li"> 
+    게시물 번호 : {{ li.post_no}} &nbsp; 제목 : {{ li.title }}
+  </div>
   <br><h3><span>신청한 봉사내역</span></h3>
 </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   name: "MyPage",
+  mounted(){
+    this.getList();
+    this.ckadmin()
+  },
   data() {
     return {
       login: false,
       admin: false,
-      memList:[],
+      list:[],
     };
   },
   computed: {
     memList() {
+      return this.$store.getters.getUserInfo;
+    },
+  },
+  methods:{
+    ckadmin(){
       if(this.$store.getters.getUserInfo[0]&&this.$store.getters.getUserInfo[0].member_no==5000){
         this.admin = true
       }
-      return this.$store.getters.getUserInfo;
     },
+    getList(){
+      let url = "http://localhost:3000/my?member_no=" + this.$store.getters.getUserInfo[0].member_no;
+      axios.get(url).then((res) => {
+        console.log(res.data);
+        if (res.data.state == "none") {
+          alert("작성한 게시물 없음.");
+        } else {
+          this.list = res.data.info;
+          // alert(res.data.info.length);
+          
+        }
+      });
+    }
   },
   setup() {
     return {};

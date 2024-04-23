@@ -65,12 +65,8 @@ export default {
             .then(res=>{
               console.log(res);
               console.log(res.data.mes);
-              console.log(res.data.title);
-
-
-                if(res.data.mes == "err") {
-                    alert(res.data.mes);
-                    this.fnList();
+                if(res.data.mes == 0) {
+                    alert('게시물 등록중 오류가 발생하였습니다.');
                 } else {
                     alert('정상적으로 등록되었습니다.');
                     this.fnList();
