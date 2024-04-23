@@ -1,5 +1,5 @@
 <template>
-  <div class="my-page">
+  <div class="my-page" v-if="memList[0] ">
     <div id="left" class="left">
       <h2>{{ memList[0].name }}님! 안녕하세요!</h2>
     </div>
