@@ -26,10 +26,14 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
   name: "NewStory",
+  data(){
+  },
   setup() {
     return {
+     
       post: {
         title: "",
         content: "",
@@ -38,28 +42,38 @@ export default {
   },
   components: {},
   methods: {
-    fnList(){ //리스트 화면으로 이동 함수
-            this.$router.push({path:'/story',query:this.body});
-        }
+    fnList(){ //리스트 화면으로 이동
+        this.$router.push('/story');
+    }
         ,fnAddProc() { //등록 프로세스
             if(!this.subject) { //제목이 없다면 값을 입력하라고 알려준다.
                 alert("제목을 입력해 주세요");
                 this.$refs.subject.focus(); //방식으로 선택자를 찾는다.
                 return;
             }
-            this.form = { //backend로 전송될 POST 데이터
-                board_code:this.board_code
-                ,subject:this.subject
-                ,cont:this.cont
-                ,id:this.id
-            }
-            this.$axios.post('http://localhost:3000/Newstory',this.form)
-            .then((res)=>{
-                if(res.data.success) {
-                    alert('등록되었습니다.');
+
+            //backend로 전송될 POST 데이터
+            let form = {} 
+            form.title = this.subject;
+            form.content = this.cont;
+            form.member_no =this.$store.getters.getUserInfo[0].member_no;
+            form.name = this.$store.getters.getUserInfo[0].name;
+            
+                 
+            let url = 'http://localhost:3000/Newstory';
+            axios.post(url,form)
+            .then(res=>{
+              console.log(res);
+              console.log(res.data.mes);
+              console.log(res.data.title);
+
+
+                if(res.data.mes == "err") {
+                    alert(res.data.mes);
                     this.fnList();
                 } else {
-                    alert("실행중 실패했습니다.\n다시 이용해 주세요");
+                    alert('정상적으로 등록되었습니다.');
+                    this.fnList();
                 }
             })
             .catch((err)=>{
