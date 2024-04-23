@@ -66,6 +66,19 @@ export default {
       alert("정상적으로 로그아웃 되었습니다.");
       this.$store.commit("onOff");
       this.$store.commit("resetInfo");
+
+
+      //로그아웃시 카카오 정보를 삭제하기 위한 메소드
+      window.Kakao.API.request({
+      url: '/v1/user/unlink',
+      })
+      .then(function(response) {
+          console.log(response);
+          vueCookies.keys().forEach(cookie => vueCookies.remove(cookie)); //캐시 삭제
+      })
+      .catch(function(error) {
+          console.log(error);
+      });
     },
   },
 };
