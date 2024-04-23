@@ -1,5 +1,6 @@
 <template>
-  <div>Volunteer</div>
+  <div>Volunt</div>
+  <div>안녕</div>
 </template>
 
 <script>
