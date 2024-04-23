@@ -4,7 +4,7 @@
   <div style="margin-top: 60px"></div>
   <img src="@/assets/whiteLogo.png" /> <br /><br />
 
-  <table class="table">
+  <table class="table" style=" width: 150px">
     <tr>
       <td class="green1" colspan="2">로그인</td>
     </tr>
@@ -30,10 +30,16 @@
         <router-link to="/join"><button>회원가입</button></router-link>
       </td>
     </tr>
+    <tr>
+      <td colspan="2">
+        <img src="@/assets/kakaoLogin.png" style="cursor: pointer;" @click="loginStart">
+      </td>
+    </tr>
   </table>
 </template>
 
 <script>
+
 import axios from "axios";
 export default {
   name: "App",
@@ -48,6 +54,11 @@ export default {
   watch: {},
 
   methods: {
+    loginStart() {
+    window.Kakao.Auth.authorize({
+      redirectUri: "http://localhost:8080/ka"
+      });
+    },
     bt_login() {
       if (this.id.length < 4 || this.id.length > 12) {
         alert("아이디를 4자리 이상, 12자리 이하로 입력하세요");
@@ -76,7 +87,7 @@ export default {
           } else {
             if (data.info.status == "Y") {
               alert("노쇼 3회 누적으로 사이트 이용이 불가합니다.");
-            }
+            }else{
             let obj1 = new Object();
             obj1.member_no = data.info.member_no;
             obj1.id = data.info.id;
@@ -94,7 +105,7 @@ export default {
 
             alert(data.info.name + "님 환영합니다.");
             this.$router.push("/");
-          }
+          }}
         });
     },
   },
@@ -126,7 +137,7 @@ button:hover {
 }
 
 .table {
-  width: 60px;
+  width: 150px;
   margin: auto;
 }
 .green {
@@ -153,7 +164,7 @@ button:hover {
 
 .textbox {
   line-height: 1.2;
-  width: 250px;
+  width: 280px;
   height: 30px;
   padding: 5px;
   font-size: 16px;

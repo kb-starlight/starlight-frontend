@@ -1,5 +1,5 @@
 <template>
-  <div>Company</div>
+  <div>안녕하세요ㅎㅎㅎ </div>
 </template>
 
 <script>
