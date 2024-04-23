@@ -103,7 +103,14 @@ export default {
   },
   methods: {
     write() {
-      this.$router.push("/Newstory");
+      if(this.$store.getters.getUserInfo[0]){
+        this.$router.push("/Newstory");
+      }else{
+        alert('게시글 작성을 위해 로그인을 진행해주세요.')
+      }
+
+
+
     },
   },
 };
