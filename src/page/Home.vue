@@ -103,12 +103,17 @@
       <div class="footer-content">
         <nav>
           <a href="https://cocoder.tistory.com" target="_blank">Blog</a> |
-          <a href="https://github.com/cocoder16" target="_blank">Github</a>
+          <a href="https://github.com/orgs/kb-starlight/dashboard" target="_blank">Github</a>
         </nav>
+        <br>
         <p>
-          <span>저자 : cocoder</span><br />
-          <span>이메일 : cocoder16@gmail.com</span><br />
-          <span>Copyright 2024. cocoder. All Rights Reserved.</span>
+          <span>주식회사 스타라이트 |</span>&nbsp;
+          <span>대표자 : 권예지, 유세앙, 최성은 |</span>&nbsp;
+          <span>서울특별시 영등포구 국제금융로8길 26 </span><br>
+          <span>대표전화 : 1588-9999 |</span>&nbsp;
+          <span>이메일 : starlight@kbfg.com</span><br>
+          <span>사업자등록번호 : 123-85-45678 |</span>&nbsp;
+          <span>Copyright starlight. All Rights Reserved.</span>
         </p>
       </div>
     </footer>
@@ -172,18 +177,12 @@ h3 {
 }
 .footer {
   position: relative;
-  padding: 22px 0 50px;
-  border-top: 1px solid #f0f0f0;
-  background-color: #fff;
-  font-size: 14px;
-  color: #828282;
+  border-top: 1px solid #F0F0F0;
 }
 .footer-content {
   position: relative;
-  padding: 22px 0 50px;
-  background-color: #fff;
-  font-size: 14px;
-  color: #828282;
-  left: 50px;
+  padding: 50px 0 30px;
+  font-size: 15px;
+  color: #666666;
 }
 </style>
