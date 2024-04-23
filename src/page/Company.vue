@@ -24,7 +24,6 @@
       />
     </div>
 </template>
-
 <script>
 import PreviewCard from "@/components/PreviewCard.vue";
 export default {
@@ -37,29 +36,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.banner {
-  margin: 0px;
-  margin-top: 60px;
-  padding: 150px;
-  background-color: #efefef;
-}
-
-.ing{
-  border: 0.5px solid rgb(201, 197, 197);
-  border-radius: 5px;
-  padding: 10px;
-  width: 600px;
-  margin: 0 auto; /* 가운데 정렬을 위해 추가 */
-  margin-top: 30px;
-  margin-bottom: 30px;
-  
-}
-.cards-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 30px;
-}
-</style>

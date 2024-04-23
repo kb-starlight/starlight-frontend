@@ -1,4 +1,4 @@
-import { createMemoryHistory, createRouter } from "vue-router";
+import { createWebHistory, createRouter } from "vue-router";
 
 import HomePage from "./page/Home.vue";
 import VisionPage from "./page/Vision.vue";
@@ -9,6 +9,7 @@ import loginPage from "./page/Login.vue";
 import joinPage from "./page/Join.vue";
 import MyPage from "./page/Mypage.vue";
 import Newstory from "./page/Newstory.vue";
+import kakao from "./page/KakaoLogin.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomePage },
@@ -20,10 +21,11 @@ const routes = [
   { path: "/join", name: "join", component: joinPage },
   { path: "/mypage", name: "mypage", component: MyPage },
   { path: "/Newstory", name: "Newstory", component: Newstory },
+  { path: "/ka", name: "kakao", component: kakao },
 ];
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 

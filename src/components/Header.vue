@@ -61,10 +61,24 @@ export default {
   },
   methods: {
     sw() {
-      alert("정상적으로 로그아웃 되었습니다.");
+      
       this.$router.push("/");
+      alert("정상적으로 로그아웃 되었습니다.");
       this.$store.commit("onOff");
       this.$store.commit("resetInfo");
+
+
+      //로그아웃시 카카오 정보를 삭제하기 위한 메소드
+      window.Kakao.API.request({
+      url: '/v1/user/unlink',
+      })
+      .then(function(response) {
+          console.log(response);
+          vueCookies.keys().forEach(cookie => vueCookies.remove(cookie)); //캐시 삭제
+      })
+      .catch(function(error) {
+          console.log(error);
+      });
     },
   },
 };
@@ -86,9 +100,19 @@ export default {
   align-items: center;
 }
 .header_right_container :deep(a),
-.header_center_container a {
+.header_center_container a,
+.header_right_container span {
   padding: 0 25px;
   color: #111;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.header_right_container :deep(a):hover,
+.header_center_container a:hover,
+.header_right_container span:hover {
+  color: #FFCC00; /* 마우스를 갖다 대었을 때의 색상 */
 }
 
 .header_left_container {

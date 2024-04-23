@@ -1,8 +1,10 @@
 <template>
   <div class="slide-wrapper">
     <div class="slide-container" ref="slide">
-      <div v-for="{ id, background } in slideData" :key="id" class="slide-item">
-        <img :style="{ background: background }" />
+      <div v-for="{ id, background, image } in slideData" :key="id" class="slide-item">
+        <div :style="{ backgroundColor: background }" class="slide-content">
+          <img :src="image" alt="Slide Image" class="slide-image" />
+          </div>
       </div>
     </div>
     <button class="prev" @click="clickLeft" />
@@ -16,10 +18,10 @@ export default {
   setup() {
     const slide = ref(null);
     const slideData = [
-      { id: "event_0", background: "#34568B" },
-      { id: "event_1", background: "#FF6F61" },
-      { id: "event_2", background: "#6B5B95" },
-      { id: "event_3", background: "#88B04B" },
+      { id: "event_0", background: "#34568B", image: "/assets/main1.png" },
+      { id: "event_1", background: "#FF6F61", image: "/assets/main1.png" },
+      { id: "event_2", background: "#6B5B95", image: "/assets/main1.png" },
+      { id: "event_3", background: "#88B04B", image: "/assets/main1.png" },
     ];
     const slideSize = slideData.length;
     let currentSlideIndex = 0;
@@ -129,11 +131,20 @@ button.next::before {
   margin-left: 10px;
   border-left: 1px solid #fff;
   border-bottom: 1px solid #fff;
+  
 }
+.slide-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.slide-image {
+  position: relative;;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+}
+
 </style>
-
-
-
-
-
-
