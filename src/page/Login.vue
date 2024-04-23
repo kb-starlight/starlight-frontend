@@ -1,7 +1,7 @@
 <template>
   <title>STARLIGHT : 로그인</title>
 
-  <div style="margin-top: 60px"></div>
+  <div style="margin-top: 120px"></div>
   <img src="@/assets/whiteLogo.png" /> <br /><br />
 
   <table class="table" style=" width: 150px">
