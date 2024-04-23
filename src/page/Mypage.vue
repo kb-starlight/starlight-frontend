@@ -1,6 +1,4 @@
 <template>
-
-  
   <!-- 관리자로 로그인시 보이는 페이지 -->
   <div class="back" v-if="memList[0]&&admin">
   <div class="admin" >
@@ -28,9 +26,15 @@
     </div>
   </div>
   <br><h3><span>내가 올린 게시글</span></h3>
-  <div v-for="li in list" :key="li"> 
-    게시물 번호 : {{ li.post_no}} &nbsp; 제목 : {{ li.title }}
-  </div>
+  <h4 v-if="list.length==0"> 올린 게시물 없음 </h4>
+  <table class="table" v-else>
+  <tr class="tr">
+    <td class="td1">게시물 번호</td> <td  class="td2">제목</td>
+  </tr>
+  <tr v-for="li in list" :key="li" tr class="tr" @click="open(li.post_no)">
+    <td>{{ li.post_no}}</td> <td>{{ li.title }}</td>
+  </tr>
+</table>
   <br><h3><span>신청한 봉사내역</span></h3>
 </div>
 </template>
@@ -47,6 +51,7 @@ export default {
       login: false,
       admin: false,
       list:[],
+      post:{},
     };
   },
   computed: {
@@ -55,6 +60,20 @@ export default {
     },
   },
   methods:{
+    open(a){
+      let url = "http://localhost:3000/viewPost?post_no=" + a;
+      axios.get(url).then((res) => {
+        console.log(res.data);
+        if (res.data.state == "none") {
+          alert("게시물을 오픈할 수 없습니다.");
+        } else {
+          alert('정보가 들어옴')
+          console.log(res.data.info);
+          this.post = res.data.info;
+          console.log(this.post);
+        }
+      });
+    },
     ckadmin(){
       if(this.$store.getters.getUserInfo[0]&&this.$store.getters.getUserInfo[0].member_no==5000){
         this.admin = true
@@ -65,11 +84,8 @@ export default {
       axios.get(url).then((res) => {
         console.log(res.data);
         if (res.data.state == "none") {
-          alert("작성한 게시물 없음.");
         } else {
           this.list = res.data.info;
-          // alert(res.data.info.length);
-          
         }
       });
     }
@@ -79,7 +95,6 @@ export default {
   },
 };
 </script>
-
 <style >
 .my-page {
   display: flex;
@@ -122,5 +137,19 @@ strong {
   align-items: center;
   width: 100%;
   height: 800px;
+}
+.table{
+  width: 60%;
+  background-color: #F7F7F7;
+  border-collapse: collapse;
+}
+.tr{
+  border-bottom: 1px solid #8A8484;
+}
+.td1{
+  width: 20%;
+}
+.td2{
+  width: 50%;
 }
 </style>
