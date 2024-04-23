@@ -177,11 +177,7 @@ h3 {
 }
 .footer {
   position: relative;
-<<<<<<< HEAD
-  border-top: 1px solid #f0f0f0;
-=======
   border-top: 1px solid #F0F0F0;
->>>>>>> c2ebe60c62c4362a9945b201df5a0c77f8250771
 }
 .footer-content {
   position: relative;
