@@ -1,8 +1,8 @@
 <template>
   <div class="slide-wrapper">
     <div class="slide-container" ref="slide">
-      <div v-for="{ id, background } in slideData" :key="id" class="slide-item">
-        <img :style="{ background: background }" />
+      <div v-for="{ id, background, src } in slideData" :key="id" class="slide-item">
+        <img :style="{ background: background }" :src="src" />
       </div>
     </div>
     <button class="prev" @click="clickLeft" />
@@ -11,15 +11,16 @@
 </template>
 <script>
 import { onMounted, ref } from "vue";
+import logo from '../assets/logo.png';
 export default {
   name: "SlideView",
   setup() {
     const slide = ref(null);
     const slideData = [
-      { id: "event_0", background: "#34568B" },
-      { id: "event_1", background: "#FF6F61" },
-      { id: "event_2", background: "#6B5B95" },
-      { id: "event_3", background: "#88B04B" },
+      { id: "event_0", background: "#34568B", src: logo },
+      { id: "event_1", background: "#FF6F61", src: logo },
+      { id: "event_2", background: "#6B5B95", src: logo },
+      { id: "event_3", background: "#88B04B", src: logo },
     ];
     const slideSize = slideData.length;
     let currentSlideIndex = 0;
