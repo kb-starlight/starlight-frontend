@@ -1,8 +1,8 @@
 <template>
     <div>
-      <h2>제목</h2>
-      <p>내용</p>
-      <p class="text-muted">2020-01-01</p>
+      <h2>{{ $route.params.title }}</h2>
+      <p>{{ $route.params.content }}</p>
+      <p class="text-muted">{{ $route.params.sendtime }}</p>
       <hr class="my-4">
       <div class="row g-2">
         <div class="col-auto ignore-auto-margin">
@@ -15,7 +15,6 @@
   </template>
   
   <script>
-  import axios from "axios";
   export default {
     data() {
         return {
@@ -27,6 +26,7 @@
         fnList(){ //리스트 화면으로 이동
             this.$router.push('/story');
         },
+        
 
     }
   }

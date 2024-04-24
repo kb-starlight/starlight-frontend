@@ -46,7 +46,7 @@
   <br /><br />
   <div class="content-layout">
   <div v-for="(chunk, index) in chunkedPosts" :key="index" class="cards-container">
-    <div v-for="post in chunk" :key="post.post_no" class="card" @click="goToDetail(post.post_no)"><br>
+    <div v-for="post in chunk" :key="post.post_no" class="card" @click="goToDetail(post)"><br>
       <div class="card-title">{{ post.title }}</div><br>
       <div class="card-title">작성자 : {{ post.name }}</div><br>
       <!-- 여기에 게시물 번호 표시 -->
@@ -86,8 +86,8 @@ export default {
     PreviewCard,
   },
   methods: {
-    goToDetail(postId) {
-      this.$router.push({ name: 'Detailstory', params: { id: postId } });
+    goToDetail(post) {
+      this.$router.push({ name: 'Detailstory', params: { title: post.title, content: post.content, sendtime: post.sendtime} });
     },
     write() {
       if(this.$store.getters.getUserInfo[0]){
@@ -95,6 +95,20 @@ export default {
       }else{
         alert('게시글 작성을 위해 로그인을 진행해주세요.')
       }
+    },
+    open(a){
+      let url = "http://localhost:3000/viewPost?post_no=" + a;
+      axios.get(url).then((res) => {
+        console.log(res.data);
+        if (res.data.state == "none") {
+          alert("게시물을 오픈할 수 없습니다.");
+        } else {
+          alert('정보가 들어옴')
+          console.log(res.data.info);
+          this.post = res.data.info;
+          console.log(this.post);
+        }
+      });
     },
 
     fetchPosts() {
@@ -159,6 +173,8 @@ h3 {
   height: 200px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+
+  cursor: pointer;
 }
 .card-title {
   font-size: 20px;
