@@ -26,16 +26,25 @@
     </div>
   </div>
   <br><h3><span>내가 올린 게시글</span></h3>
-  <h4 v-if="list.length==0"> 올린 게시물 없음 </h4>
+  <h4 v-if="list1.length==0"> 올린 게시물 없음 </h4>
   <table class="table" v-else>
   <tr class="tr">
-    <td class="td1">게시물 번호</td> <td  class="td2">제목</td>
+    <td class="td1">게시물 번호</td> <td  class="td2">제목</td>  <td  class="td2">내용</td>
   </tr>
-  <tr v-for="li in list" :key="li" tr class="tr" @click="open(li.post_no)">
-    <td>{{ li.post_no}}</td> <td>{{ li.title }}</td>
+  <tr v-for="li in list1" :key="li" tr class="tr" @click="open(li.post_no)">
+    <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
   </tr>
 </table>
   <br><h3><span>신청한 봉사내역</span></h3>
+  <h4 v-if="list2.length==0"> 올린 게시물 없음 </h4>
+  <table class="table" v-else>
+  <tr class="tr">
+    <td class="td1">봉사일련번호</td> <td  class="td2">봉사명</td> <td  class="td2">봉사내용</td>
+  </tr>
+  <tr v-for="li in list2" :key="li" tr class="tr" @click="open(li.post_no)">
+    <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
+  </tr>
+</table>
 </div>
 </template>
 <script>
@@ -43,14 +52,16 @@ import axios from "axios";
 export default {
   name: "MyPage",
   mounted(){
-    this.getList();
+    this.getList(1, this.list1);
+    this.getList(2, this.list2);
     this.ckadmin()
   },
   data() {
     return {
       login: false,
       admin: false,
-      list:[],
+      list1:[],
+      list2:[],
       post:{},
     };
   },
@@ -79,16 +90,25 @@ export default {
         this.admin = true
       }
     },
-    getList(){
-      let url = "http://localhost:3000/my?member_no=" + this.$store.getters.getUserInfo[0].member_no;
-      axios.get(url).then((res) => {
+    getList(board_no, list){
+      let url = "http://localhost:3000/my1";
+      let obj = {};
+      obj.member_no = this.$store.getters.getUserInfo[0].member_no;
+      obj.board_no = board_no;
+
+      axios.get(url, {
+        params: obj
+      })
+      .then((res) => {
         console.log(res.data);
         if (res.data.state == "none") {
         } else {
-          this.list = res.data.info;
+          Array.prototype.push.apply(list, res.data.info);
+          console.log(list);
         }
       });
-    }
+    },
+    
   },
   setup() {
     return {};
