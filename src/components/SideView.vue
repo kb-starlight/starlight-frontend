@@ -82,7 +82,7 @@ export default {
 .slide-container {
   display: flex;
   flex-flow: row nowrap;
-  height: 400px;
+  height: 430px;
   width: 100%;
   scroll-snap-type: x proximity;
   overflow-x: scroll;
@@ -117,7 +117,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 380px;
+  height: 350px;
   background-size: cover;
   background-position: center;
   z-index: -1;
