@@ -1,27 +1,15 @@
 <template>
   <div class="banner" id="banner"></div>
-  <h3 class="ing">진행중인 제휴 프로그램 건</h3>
-  <div class="cards-container">
-      <preview-card
-        image="https://happybean-phinf.pstatic.net/20240409_243/1712656139366lY24E_PNG/4.%25A1%25E1%25BC%25E1%25A9%25E1%25A8%25E1%25A5%25E1.png?type=a360"
-        label="집이 무너졌어요"
-        description="Description1"
-      />
-      <preview-card
-        image="https://happybean-phinf.pstatic.net/20240409_84/1712656161293toLYm_PNG/5.%25A6%25E1%25AB%25E1%25A6%25E1%25B3%25E1%25A6%25E1%25B5%25E1%25B3%25E1.png?type=a360"
-        label="rank2"
-        description="Description2"
-      />
-      <preview-card
-        image="https://happybean-phinf.pstatic.net/20240409_242/1712656181657O4qMe_PNG/6.%25A6%25E1%25A5%25E1%25B3%25E1%25A6%25E1%25B5%25E1%25B3%25E1%25A9%25E1%25B5%25E1%25A1%25E1%25B3%25E1.png?type=a360"
-        label="rank3"
-        description="Description3"
-      />
-      <preview-card
-        image="https://happybean-phinf.pstatic.net/20240409_242/1712656181657O4qMe_PNG/6.%25A6%25E1%25A5%25E1%25B3%25E1%25A6%25E1%25B5%25E1%25B3%25E1%25A9%25E1%25B5%25E1%25A1%25E1%25B3%25E1.png?type=a360"
-        label="rank4"
-        description="Description4"
-      />
+  <h1 class="ing" style="margin-top: 70px"> 진행중인 제휴 프로그램</h1>
+  <div class="cards-container" style="margin-top: 30px">
+   <a href="https://happybean.naver.com/campaign/dreambase"><img src="@/assets/제휴업체1.png"  /> </a> 
+   <a href="https://happybean.naver.com/template/campaign/2405withcong"><img src="@/assets/제휴업체2.png"  /> </a> 
+   <a href="https://happybean.naver.com/campaign/2024greenweek"><img src="@/assets/제휴업체3.png"  /> </a> 
+   <a href="https://happybean.naver.com/campaign/earthday2024"><img src="@/assets/제휴업체4.png"  /> </a> <br>
+   <a href="https://happybean.naver.com/project/2929"><img src="@/assets/제휴업체5.png"  /> </a> 
+   <a href="https://happybean.naver.com/project/2905"><img src="@/assets/제휴업체6.png"  /> </a> 
+   <a href="https://happybean.naver.com/project/tmoney"><img src="@/assets/제휴업체7.png"  /> </a> 
+   <a href="https://happybean.naver.com/campaign/greener2024"><img src="@/assets/제휴업체8.png"  /> </a> 
     </div>
 </template>
 <script>
