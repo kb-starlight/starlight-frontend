@@ -33,9 +33,9 @@ export default {
     const slide = ref(null);
     const slideData = [
       { id: "event_0", background: "rgba(105, 156, 238, 0.3)", src: main1 },
-      { id: "event_1", background: "rgba(231, 124, 124, 0.3)", src: main2 },
-      { id: "event_2", background: "rgba(65, 201, 130, 0.3)", src: main3 },
-      { id: "event_3", background: "rgba(255, 189, 69, 0.3)", src: main4 },
+      { id: "event_1", background: "rgba(236, 141, 4, 0.3)", src: main2 },
+      { id: "event_2", background: "rgba(225, 77, 77, 0.3)", src: main3 },
+      { id: "event_3", background: "rgba(0, 172, 76, 0.3)", src: main4 },
     ];
     const slideSize = slideData.length;
     let currentSlideIndex = 0;

@@ -4,26 +4,26 @@
     <div class="mainkeyword-wrap">
       <ul class="mainkeyword-list">
         <li class="mainkeyword-item">
-          <a href="#" class="mainkeyword-link">지구의날펀딩</a>
+          <a href="#" class="mainkeyword-link">#지구의날펀딩</a>
         </li>
         <li class="mainkeyword-item" style="margin-left: 20px">
-          <a href="#" class="mainkeyword-link">순직의무군경의날</a>
+          <a href="#" class="mainkeyword-link">#순직의무군경의날</a>
         </li>
         <li class="mainkeyword-item" style="margin-left: 20px">
-          <a href="#" class="mainkeyword-link">가정의달기획전</a>
+          <a href="#" class="mainkeyword-link">#가정의달기획전</a>
         </li>
         <li class="mainkeyword-item" style="margin-left: 20px">
-          <a href="#" class="mainkeyword-link">이달의해피빈</a>
+          <a href="#" class="mainkeyword-link">#녹색생활 실천</a>
         </li>
         <li class="mainkeyword-item" style="margin-left: 20px">
-          <a href="#" class="mainkeyword-link">기업이랑기부</a>
+          <a href="#" class="mainkeyword-link">#기업이랑기부</a>
         </li>
       </ul>
     </div>
     <div class="centered-content">
       <div class="content-layout">
         <div>
-          <h3><span>사연게시판 ></span></h3>
+          <h3 class="h3_left"><span>사연게시판 ></span></h3>
           <div class="cards-container">
             <preview-card
               image="https://happybean-phinf.pstatic.net/20240409_243/1712656139366lY24E_PNG/4.%25A1%25E1%25BC%25E1%25A9%25E1%25A8%25E1%25A5%25E1.png?type=a360"
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div>
-          <h3><span>봉사모집 ></span></h3>
+          <h3 class="h3_left"><span>봉사모집 ></span></h3>
           <div class="cards-container">
             <preview-card
               image="https://happybean-phinf.pstatic.net/20240409_264/1712655980919qzyYF_PNG/7.%25A9%25E1%25A8%25E1%25B5%25E1.png?type=a360"
@@ -73,7 +73,7 @@
           </div>
         </div>
         <div>
-          <h3><span>진행중인 제휴업체 ></span></h3>
+          <h3 class="h3_left"><span>진행중인 제휴업체 ></span></h3>
           <div class="cards-container">
             <preview-card
               image="https://happybean-phinf.pstatic.net/20240419_11/1713509555805AgrTN_JPEG/asdfasfasddd.jpg?type=a360"
@@ -131,6 +131,11 @@ export default {
 };
 </script>
 <style scoped>
+
+.h3_left {
+  text-align: left;
+}
+
 .centered-content {
   display: flex;
   justify-content: center;
@@ -163,17 +168,16 @@ h3 {
 }
 .mainkeyword-link {
   display: block;
-  height: 53px;
-  padding-top: 20px;
-  border: 1px solid #65db7f;
-  border-radius: 26px;
+  height: 40px;
+  border: 3px solid #90e2e2;
+  border-radius: 50px;
   font-family: NanumSquareWebFont, dotum, Sans-serif;
   font-size: 17px;
-  font-weight: 700;
-  color: #00ab33;
+  font-weight: bold;
+  color: #050505;
   text-align: center;
   text-decoration: none;
-  line-height: 30px;
+  line-height: 40px;
 }
 .footer {
   position: relative;
