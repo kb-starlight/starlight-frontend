@@ -38,12 +38,13 @@ img {
   height: 242px;
 }
 .label {
-  font-size: 15px;
-  color: #828282;
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
 }
 .description {
-  font-size: 17px;
-  color: #333;
+  font-size: 15px;
+  color: #828282;
   font-weight: bold;
 }
 </style>
