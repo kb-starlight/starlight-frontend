@@ -1,41 +1,51 @@
 <template>
   <div class="slide-wrapper">
     <div class="slide-container" ref="slide">
-      <div v-for="{ id, background, image } in slideData" :key="id" class="slide-item">
-        <div :style="{ backgroundColor: background }" class="slide-content">
-          <img :src="image" alt="Slide Image" class="slide-image" />
-          </div>
+      <div v-for="{ id, background, src } in slideData" :key="id" class="slide-item">
+        <div class="image-container">
+          <img :src="src" class="slide-image" />
+          <div class="background-layer" :style="{ background: background }"></div>
+        </div>
       </div>
     </div>
     <button class="prev" @click="clickLeft" />
     <button class="next" @click="clickRight" />
   </div>
 </template>
+
 <script>
 import { onMounted, ref } from "vue";
+import main1 from "../assets/main1.png";
+import main2 from "../assets/main2.png";
+import main3 from "../assets/main3.png";
+import main4 from "../assets/main4.png";
+
 export default {
   name: "SlideView",
   setup() {
     const slide = ref(null);
     const slideData = [
-      { id: "event_0", background: "#34568B", image: "/assets/main1.png" },
-      { id: "event_1", background: "#FF6F61", image: "/assets/main1.png" },
-      { id: "event_2", background: "#6B5B95", image: "/assets/main1.png" },
-      { id: "event_3", background: "#88B04B", image: "/assets/main1.png" },
+      { id: "event_0", background: "#34568B", src: main1 },
+      { id: "event_1", background: "#FF6F61", src: main2 },
+      { id: "event_2", background: "#6B5B95", src: main3 },
+      { id: "event_3", background: "#88B04B", src: main4 },
     ];
     const slideSize = slideData.length;
     let currentSlideIndex = 0;
+
     const clickLeft = () => {
       const { width = 0 } = slide.value?.getBoundingClientRect() || {};
       const targetX1 = slide.value.scrollLeft - width;
       const targetX2 = targetX1 < 0 ? width * slideSize + targetX1 : targetX1;
       slide.value.scrollLeft = targetX2 % (width * slideSize);
     };
+
     const clickRight = () => {
       const { width = 0 } = slide.value?.getBoundingClientRect() || {};
       const targetX = slide.value.scrollLeft + width;
       slide.value.scrollLeft = targetX % (width * slideSize);
     };
+
     const infiniteScroll = () => {
       setTimeout(() => {
         if (!slide.value) return;
@@ -49,9 +59,11 @@ export default {
         infiniteScroll();
       }, 3 * 1000);
     };
+
     onMounted(() => {
       infiniteScroll();
     });
+
     return {
       slide,
       slideData,
@@ -61,10 +73,12 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .slide-wrapper {
   position: relative;
 }
+
 .slide-container {
   display: flex;
   flex-flow: row nowrap;
@@ -75,6 +89,11 @@ export default {
   overflow-y: hidden;
   scroll-behavior: smooth;
 }
+
+.slide-container::-webkit-scrollbar {
+  display: none;
+}
+
 .slide-item {
   width: 100%;
   height: 100%;
@@ -82,10 +101,27 @@ export default {
   scroll-snap-align: center;
   flex: none;
 }
-.slide-item img {
+
+.image-container {
+  position: relative;
+}
+
+.slide-image {
+  width: auto; /* 이미지 크기를 조정함 */
+  max-height: 100%; /* 이미지가 컨테이너를 넘지 않도록 함 */
+}
+
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 }
+
 button.prev {
   position: absolute;
   left: 0;
@@ -97,6 +133,7 @@ button.prev {
   border: none;
   cursor: pointer;
 }
+
 button.next {
   position: absolute;
   right: 0;
@@ -108,6 +145,7 @@ button.next {
   border: none;
   cursor: pointer;
 }
+
 button.prev::before {
   content: "";
   position: absolute;
@@ -120,6 +158,7 @@ button.prev::before {
   border-left: 1px solid #fff;
   border-bottom: 1px solid #fff;
 }
+
 button.next::before {
   content: "";
   position: absolute;
@@ -131,20 +170,5 @@ button.next::before {
   margin-left: 10px;
   border-left: 1px solid #fff;
   border-bottom: 1px solid #fff;
-  
 }
-.slide-content {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-.slide-image {
-  position: relative;;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-}
-
 </style>
