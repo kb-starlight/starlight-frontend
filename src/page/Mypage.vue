@@ -53,7 +53,7 @@
   <tr class="tr">
     <td class="td1">게시물 번호</td> <td  class="td2">제목</td>  <td  class="td2">내용</td>
   </tr>
-  <tr v-for="li in list1" :key="li" tr class="tr" @click="open(li.post_no)">
+  <tr v-for="li in list1" :key="li" tr class="tr" >
     <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
   </tr>
 </table>
@@ -181,6 +181,9 @@ export default {
         }
       });
     },
+    gogo(){
+      
+    }
   },
   setup() {
     return {};
