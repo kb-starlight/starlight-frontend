@@ -56,6 +56,8 @@
   <tr v-for="li in list1" :key="li" tr class="tr" @click="open(li.post_no)">
     <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
   </tr>
+</table>
+  
 </div>
 </template>
 <script>
