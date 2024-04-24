@@ -56,17 +56,6 @@
   <tr v-for="li in list1" :key="li" tr class="tr" @click="open(li.post_no)">
     <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
   </tr>
-</table>
-  <br><h3><span>신청한 봉사내역</span></h3>
-  <h4 v-if="list2.length==0"> 올린 게시물 없음 </h4>
-  <table class="table" v-else>
-  <tr class="tr">
-    <td class="td1">봉사일련번호</td> <td  class="td2">봉사명</td> <td  class="td2">봉사내용</td>
-  </tr>
-  <tr v-for="li in list2" :key="li" tr class="tr" @click="open(li.post_no)">
-    <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
-  </tr>
-</table>
 </div>
 </template>
 <script>
