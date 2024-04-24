@@ -3,16 +3,18 @@
   <main>
     <router-view />
   </main>
-  <footer></footer>
+  <Footer />
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import Footer from '@/page/Footer.vue';
 
 export default {
   name: "App",
   components: {
     Header,
+    Footer
   },
 };
 </script>

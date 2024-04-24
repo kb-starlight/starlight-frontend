@@ -99,7 +99,10 @@
         </div>
       </div>
     </div>
-    <footer class="footer">
+
+
+
+    <!-- <footer class="footer">
       <div class="footer-content">
         <nav>
           <a href="https://cocoder.tistory.com" target="_blank">Blog</a> |
@@ -116,12 +119,14 @@
           <span>Copyright starlight. All Rights Reserved.</span>
         </p>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 <script>
 import PreviewCard from "@/components/PreviewCard.vue";
 import SlideView from "../components/SideView.vue";
+
+
 export default {
   name: "HomePage",
   components: {
