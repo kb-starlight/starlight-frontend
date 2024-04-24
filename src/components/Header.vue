@@ -122,7 +122,7 @@ export default {
 .header_left_container .logo {
   width: 200px;
   cursor: pointer;
-  margin-top: 200px;
+  margin-top: 20px;
   margin-left: 50px;
 }
 </style>
