@@ -10,6 +10,7 @@
   <div class="my-page" >
     <div id="left" class="left">
       <h2>{{ memList[0].name }}님! 안녕하세요!</h2>
+      <img :src="setLevel" />
     </div>
     <div id="right" class="right">
       <div class="section">
@@ -49,6 +50,12 @@
 </template>
 <script>
 import axios from "axios";
+import Lv1 from "../assets/Lv1.png";
+import Lv2 from "../assets/Lv2.png";
+import Lv3 from "../assets/Lv3.png";
+import Lv4 from "../assets/Lv4.png";
+import Lv5 from "../assets/Lv5.png";
+
 export default {
   name: "MyPage",
   mounted(){
@@ -58,6 +65,15 @@ export default {
   },
   data() {
     return {
+
+      image: {
+        0: Lv1,
+        1: Lv1,
+        2: Lv2,
+        3: Lv3,
+        4: Lv4,
+        5: Lv5
+      },
       login: false,
       admin: false,
       list1:[],
@@ -69,6 +85,14 @@ export default {
     memList() {
       return this.$store.getters.getUserInfo;
     },
+    setLevel(){
+      const lv = Math.floor(this.memList[0].temp/5);
+      if(lv>5){
+        return this.image[5];
+      }else{
+      return this.image[lv];
+      }
+    }
   },
   methods:{
     open(a){
