@@ -1,10 +1,17 @@
 <template>
-  <div class="slide-wrapper" style="margin-top: 30px;">
+  <div class="slide-wrapper" style="margin-top: 30px">
     <div class="slide-container" ref="slide">
-      <div v-for="{ id, background, src } in slideData" :key="id" class="slide-item">
+      <div
+        v-for="{ id, background, src } in slideData"
+        :key="id"
+        class="slide-item"
+      >
         <div class="image-container">
-          <img :src="src" class="slide-image" style="margin-top: 50px;"/>
-          <div class="background-layer" :style="{ background: background }"></div>
+          <img :src="src" class="slide-image" style="margin-top: 50px" />
+          <div
+            class="background-layer"
+            :style="{ background: background }"
+          ></div>
         </div>
       </div>
     </div>
@@ -25,10 +32,10 @@ export default {
   setup() {
     const slide = ref(null);
     const slideData = [
-      { id: "event_0", background: "#34568B", src: main1 },
-      { id: "event_1", background: "#FF6F61", src: main2 },
-      { id: "event_2", background: "#6B5B95", src: main3 },
-      { id: "event_3", background: "#88B04B", src: main4 },
+      { id: "event_0", background: "rgba(105, 156, 238, 0.3)", src: main1 },
+      { id: "event_1", background: "rgba(231, 124, 124, 0.3)", src: main2 },
+      { id: "event_2", background: "rgba(65, 201, 130, 0.3)", src: main3 },
+      { id: "event_3", background: "rgba(255, 189, 69, 0.3)", src: main4 },
     ];
     const slideSize = slideData.length;
     let currentSlideIndex = 0;
@@ -90,7 +97,6 @@ export default {
   scroll-behavior: smooth;
 }
 
-
 .slide-container::-webkit-scrollbar {
   display: none;
 }
@@ -127,7 +133,7 @@ button.prev {
   position: absolute;
   left: 0;
   top: calc(50% - 32px);
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: transparent; /* 회색 배경 제거 */
   width: 40px;
   height: 64px;
   outline: none;
@@ -139,7 +145,7 @@ button.next {
   position: absolute;
   right: 0;
   top: calc(50% - 32px);
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: transparent; /* 회색 배경 제거 */
   width: 40px;
   height: 64px;
   outline: none;
