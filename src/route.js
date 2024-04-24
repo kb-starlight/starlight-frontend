@@ -10,6 +10,7 @@ import joinPage from "./page/Join.vue";
 import MyPage from "./page/Mypage.vue";
 import Newstory from "./page/Newstory.vue";
 import kakao from "./page/KakaoLogin.vue";
+import Detailstory from "./page/Detailstory.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomePage },
@@ -22,6 +23,7 @@ const routes = [
   { path: "/mypage", name: "mypage", component: MyPage },
   { path: "/Newstory", name: "Newstory", component: Newstory },
   { path: "/ka", name: "kakao", component: kakao },
+  { path: "/Detailstory/:id", name: "Detailstory", component: Detailstory },
 ];
 
 const router = createRouter({
