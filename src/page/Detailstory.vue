@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" style="margin-top: 70px;">
     <h2>{{ $route.params.title }}</h2>
     <p>{{ $route.params.content }}</p>
     <p class="text-muted">{{ $route.params.sendtime }}</p>

@@ -3,14 +3,14 @@
   <div class="back" v-if="admin">
   <div class="admin" >
     <h2>관리자 페이지</h2>
-    <button @click="bt1"> 회원 관리 </button> <button @click="bt2"> 게시글 관리 </button> <button @click="d"> 봉사 관리 </button><br>  
+    <button @click="bt1"> 회원 관리 </button> <button @click="bt2"> 게시글 관리 </button> <button @click="d"> 봉사 관리 </button> <br>   <br>
     <div class="div1">
       <h4 v-if="adminList.length==0"> 원하는 메뉴를 선택하세요 </h4>
       <table class="table1" v-if="mem" >
         <tr class="tr">
           <td>회원번호</td> <td >회원명</td> <td>회원 아이디</td><td>전화번호</td><td>이메일</td><td>온도</td><td >스타</td><td >노쇼횟수</td><td >차단</td>
         </tr>
-        <tr v-for="li in adminList" :key="li" tr class="tr" @click="a">
+        <tr v-for="li in adminList" :key="li" tr class="tr" @click="gogo(li.member_no)">
           <td>{{ li.member_no}}</td> <td>{{ li.name }}</td> <td>{{ li.id }}</td><td>{{ li.phone }}</td><td>{{ li.email }}</td><td>{{ li.temp }}</td><td>{{ li.star }}</td><td>{{ li.noshowcount }}</td><td>{{ li.status }}</td>
         </tr>
       </table>
@@ -20,7 +20,7 @@
           <td>게시글 번호</td> <td >제목</td> <td>내용</td><td>작성자</td><td>작성시간</td><td>좋아요</td>
         </tr>
         <tr v-for="li in adminList" :key="li" tr class="tr" @click="a">
-          <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td><td>{{ li.name }}</td><td>{{ li.sendtime }}</td><td>{{ li.good }}</td>
+          <td style="width: 60px">{{ li.post_no}}</td> <td style="width: 200px">{{ li.title }}</td> <td>{{ li.content }}</td><td style="width: 60px">{{ li.name }}</td><td style="width: 150px">{{ li.sendtime }}</td><td style="width: 60px">{{ li.good }}</td>
         </tr>
       </table>
     </div>
@@ -56,17 +56,6 @@
   <tr v-for="li in list1" :key="li" tr class="tr" @click="open(li.post_no)">
     <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
   </tr>
-</table>
-  <br><h3><span>신청한 봉사내역</span></h3>
-  <h4 v-if="list2.length==0"> 올린 게시물 없음 </h4>
-  <table class="table" v-else>
-  <tr class="tr">
-    <td class="td1">봉사일련번호</td> <td  class="td2">봉사명</td> <td  class="td2">봉사내용</td>
-  </tr>
-  <tr v-for="li in list2" :key="li" tr class="tr" @click="open(li.post_no)">
-    <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
-  </tr>
-</table>
 </div>
 </template>
 <script>
@@ -266,5 +255,6 @@ strong {
   margin-top: 20px;
   background-color: #F7F7F7;
   margin: auto;
+  overflow: auto;
 }
 </style>
