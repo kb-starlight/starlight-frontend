@@ -1,9 +1,9 @@
 <template>
-  <div class="slide-wrapper">
+  <div class="slide-wrapper" style="margin-top: 30px;">
     <div class="slide-container" ref="slide">
       <div v-for="{ id, background, src } in slideData" :key="id" class="slide-item">
         <div class="image-container">
-          <img :src="src" class="slide-image" />
+          <img :src="src" class="slide-image" style="margin-top: 50px;"/>
           <div class="background-layer" :style="{ background: background }"></div>
         </div>
       </div>
@@ -82,13 +82,14 @@ export default {
 .slide-container {
   display: flex;
   flex-flow: row nowrap;
-  height: 300px;
+  height: 400px;
   width: 100%;
   scroll-snap-type: x proximity;
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-behavior: smooth;
 }
+
 
 .slide-container::-webkit-scrollbar {
   display: none;
@@ -116,7 +117,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 380px;
   background-size: cover;
   background-position: center;
   z-index: -1;
