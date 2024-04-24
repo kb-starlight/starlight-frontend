@@ -22,10 +22,10 @@
 
 <script>
 import { onMounted, ref } from "vue";
-import main1 from "../assets/main1.png";
-import main2 from "../assets/main2.png";
-import main3 from "../assets/main3.png";
-import main4 from "../assets/main4.png";
+import main1 from "../assets/배너1.png";
+import main2 from "../assets/배너2.png";
+import main3 from "../assets/배너3.png";
+import main4 from "../assets/배너4.png";
 
 export default {
   name: "SlideView",
