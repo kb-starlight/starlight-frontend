@@ -1,17 +1,26 @@
 <template>
   <!-- 관리자로 로그인시 보이는 페이지 -->
-  <div class="back" v-if="memList[0]&&admin">
+  <div class="back" v-if="admin">
   <div class="admin" >
     <h2>관리자 페이지</h2>
-    <button @click="d"> 회원 관리 </button> <button @click="d"> 게시글 관리 </button><br>  
+    <button @click="bt1"> 회원 관리 </button> <button @click="bt2"> 게시글 관리 </button> <button @click="d"> 봉사 관리 </button><br>  
     <div class="div1">
-      <h4 v-if="list2.length==0"> 원하는 메뉴를 선택하세요 </h4>
-      <table class="table" v-else>
+      <h4 v-if="adminList.length==0"> 원하는 메뉴를 선택하세요 </h4>
+      <table class="table1" v-if="mem" >
         <tr class="tr">
-          <td class="td1">봉사일련번호</td> <td  class="td2">봉사명</td> <td  class="td2">봉사내용</td>
+          <td>회원번호</td> <td >회원명</td> <td>회원 아이디</td><td>전화번호</td><td>이메일</td><td>온도</td><td >스타</td><td >노쇼횟수</td><td >차단</td>
         </tr>
-        <tr v-for="li in adminList" :key="li" tr class="tr" @click="open(li.post_no)">
-          <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
+        <tr v-for="li in adminList" :key="li" tr class="tr" @click="a">
+          <td>{{ li.member_no}}</td> <td>{{ li.name }}</td> <td>{{ li.id }}</td><td>{{ li.phone }}</td><td>{{ li.email }}</td><td>{{ li.temp }}</td><td>{{ li.star }}</td><td>{{ li.noshowcount }}</td><td>{{ li.status }}</td>
+        </tr>
+      </table>
+      <!-- 게시글 관리 true 일 경우 표출 -->
+      <table class="table1" v-if="post1" >
+        <tr class="tr">
+          <td>게시글 번호</td> <td >제목</td> <td>내용</td><td>작성자</td><td>작성시간</td><td>좋아요</td>
+        </tr>
+        <tr v-for="li in adminList" :key="li" tr class="tr" @click="a">
+          <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td><td>{{ li.name }}</td><td>{{ li.sendtime }}</td><td>{{ li.good }}</td>
         </tr>
       </table>
     </div>
@@ -88,6 +97,8 @@ export default {
       },
       login: false,
       admin: false,
+      post1:false,
+      mem: false,
       list1:[],
       list2:[],
       adminList:[],
@@ -145,7 +156,40 @@ export default {
         }
       });
     },
-    
+    bt1(){
+      this.setMember();
+      this.mem=true;
+      this.post1=false;
+    },
+    bt2(){
+      this.mem=false;
+      this.post1=true;
+      this.setPost();
+    },
+    setMember(){
+      let url = "http://localhost:3000/allMem";
+      axios.get(url)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.state == "none") {
+        } else {
+          this.adminList = res.data.info;
+          console.log(this.adminList);
+        }
+      });
+    },
+    setPost(){
+      let url = "http://localhost:3000/allPost";
+      axios.get(url)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.state == "none") {
+        } else {
+          this.adminList = res.data.info;
+          console.log(this.adminList);
+        }
+      });
+    },
   },
   setup() {
     return {};
@@ -199,6 +243,13 @@ strong {
   width: 60%;
   background-color: #F7F7F7;
   border-collapse: collapse;
+}
+.table1{
+  width: 100%;
+  background-color: #F7F7F7;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 10px;
 }
 .tr{
   border-bottom: 1px solid #8A8484;

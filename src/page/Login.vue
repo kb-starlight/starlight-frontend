@@ -4,12 +4,12 @@
   <div style="margin-top: 120px"></div>
   <img src="@/assets/whiteLogo.png" /> <br /><br />
 
-  <table class="table" style=" width: 150px">
+  <table class="table2" style=" width: 150px">
     <tr>
       <td class="green1" colspan="2">로그인</td>
     </tr>
     <tr>
-      <td class="green">아이디</td>
+      <td class="green" style="width: 90%;">아이디</td>
       <td class="table1">
         &nbsp;
         <input type="text" v-model="id" :disabled="id_check" class="textbox" />
@@ -136,7 +136,7 @@ button:hover {
   transform: scale(1.05); /* 버튼을 약간 크게 만듦 */
 }
 
-.table {
+.table2 {
   width: 150px;
   margin: auto;
 }
