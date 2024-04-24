@@ -3,6 +3,18 @@
   <div class="back" v-if="memList[0]&&admin">
   <div class="admin" >
     <h2>관리자 페이지</h2>
+    <button @click="d"> 회원 관리 </button> <button @click="d"> 게시글 관리 </button><br>  
+    <div class="div1">
+      <h4 v-if="list2.length==0"> 원하는 메뉴를 선택하세요 </h4>
+      <table class="table" v-else>
+        <tr class="tr">
+          <td class="td1">봉사일련번호</td> <td  class="td2">봉사명</td> <td  class="td2">봉사내용</td>
+        </tr>
+        <tr v-for="li in adminList" :key="li" tr class="tr" @click="open(li.post_no)">
+          <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
+        </tr>
+      </table>
+    </div>
   </div>
   </div>
   <!-- 여기부터 일반 회원이 로그인시에 보이는 페이지 -->
@@ -65,7 +77,7 @@ export default {
   },
   data() {
     return {
-
+      control:true,
       image: {
         0: Lv1,
         1: Lv1,
@@ -78,6 +90,7 @@ export default {
       admin: false,
       list1:[],
       list2:[],
+      adminList:[],
       post:{},
     };
   },
@@ -172,7 +185,7 @@ strong {
 }
 .admin{
   width: 70%;
-  height: 500px;
+  height: 700px;
   background-color: #CAE8DE;
 }
 .back{
@@ -195,5 +208,12 @@ strong {
 }
 .td2{
   width: 50%;
+}
+.div1{
+  width: 90%;
+  height: 450px;
+  margin-top: 20px;
+  background-color: #F7F7F7;
+  margin: auto;
 }
 </style>
