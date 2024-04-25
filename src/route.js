@@ -24,7 +24,7 @@ const routes = [
   { path: "/Newstory", name: "Newstory", component: Newstory },
   { path: "/ka", name: "kakao", component: kakao },
   // { path: "/Detailstory/:id", name: "Detailstory", component: Detailstory },
-  { path: "/Detailstory/:title/:content/:sendtime", name: "Detailstory", component: Detailstory },
+  { path: "/Detailstory/:title/:content/:sendtime/:post_no", name: "Detailstory", component: Detailstory },
 ];
 
 const router = createRouter({
