@@ -15,6 +15,7 @@ export default {
   },
   methods: {
     popupClose() {
+      this.$store.commit("popuponOff");
       this.$emit("setParent");
     },
   },
