@@ -1,6 +1,6 @@
 <template>
   <h1 style="margin-top: 70px" class="limited-quantity">[한정 수량] 펄이 T-SHIRT (4 TYPES)</h1>
-  <br />
+  <h1 class="sell">예!약!판!매!</h1>
   <h2>1. 스타라이트 로고 티셔츠</h2>
   <img src="@/assets/셔츠1.png" /><br />
   <h2>2. 펄이 레벨 티셔츠</h2>
@@ -50,6 +50,12 @@ export default {
 .limited-quantity {
   /* 다른 스타일들은 그대로 유지하고, 한정수량 글씨에만 반짝임 효과를 추가 */
   animation: blink 2s infinite alternate; /* blink 애니메이션을 적용하여 1초 간격으로 반짝거리게 함 */
+}
+
+.sell {
+      font-size: 50px;
+    font-weight: bold;
+    color: red;
 }
 
 @keyframes blink {
