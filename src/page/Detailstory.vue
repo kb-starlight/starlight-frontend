@@ -6,8 +6,8 @@
     <hr class="my-4">
     <div class="button-wrap">
       <button @click="fnList" class="btn cancel">목록</button>
-      <button class="btn edit">수정</button>
-      <button class="btn delete">삭제</button>
+      <!-- <button class="btn edit">수정</button> -->
+      <button @click="delete_btn" class="btn delete">삭제</button>
     </div>
   </div>
 </template>
@@ -24,6 +24,10 @@ export default {
     fnList() { // 리스트 화면으로 이동
       this.$router.push('/story');
     },
+
+    delete_btn() {
+      
+    }
   }
 };
 </script>
@@ -87,8 +91,4 @@ hr {
   background-color: #d9534f;
   color: #fff;
 }
-</style>0.0
-
-
-
-.
+</style>
