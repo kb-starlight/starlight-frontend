@@ -2,7 +2,7 @@
   <!-- 관리자로 로그인시 보이는 페이지 -->
   <div class="back" v-if="admin">
   <div class="admin" >
-    <h2>관리자 페이지</h2>
+    <h2>관리자 페이지 test용</h2>
     <button @click="bt1"> 회원 관리 </button> <button @click="bt2"> 게시글 관리 </button> <button @click="bt3"> 봉사 관리 </button> <br>   <br>
     <div class="div1">
       <h4 v-if="adminList.length==0"> 원하는 메뉴를 선택하세요 </h4>
@@ -72,6 +72,7 @@
 </div>
 </div>
 </template>
+
 <script>
 import axios from "axios";
 import Lv1 from "../assets/Lv1.png";

@@ -13,6 +13,7 @@ import kakao from "./page/KakaoLogin.vue";
 import Detailstory from "./page/Detailstory.vue";
 import goods from "./page/goods.vue";
 import newVolunteer from "./page/NewVolunteer.vue";
+import whackamole from "./page/whackamole.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomePage },
@@ -26,6 +27,7 @@ const routes = [
   { path: "/Newstory", name: "Newstory", component: Newstory },
   { path: "/ka", name: "kakao", component: kakao },
   { path: "/goods", name: "goods", component: goods },
+  { path: "/whackamole", name: "whackamole", component: whackamole },
   { path: "/newVolunteer", name: "newVolunteer", component: newVolunteer },
   // { path: "/Detailstory/:id", name: "Detailstory", component: Detailstory },
   { path: "/Detailstory/:title/:content/:sendtime/:post_no/:member_no", name: "Detailstory", component: Detailstory },
