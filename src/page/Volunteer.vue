@@ -3,7 +3,7 @@
     <h2>봉사 목록 </h2>
   <table class="table" v-if="list.length!=0" >
   <tr class="tr">
-    <td class="td1">게시물 번호</td> <td  class="td2">제목</td>  <td  class="td2">내용</td>
+    <td  style="width: 1px;">게시물 번호</td> <td  style="width: 80px;">제목</td>  <td  class="td2">내용</td>
   </tr>
   <tr v-for="li , i in list" :key="li" tr class="tr"  @click="goToDetail(li)">
     <td>{{ i+1 }}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
