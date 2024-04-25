@@ -20,7 +20,7 @@
           <td>게시글 번호</td> <td >제목</td> <td>내용</td><td>작성자</td><td>작성시간</td><td>좋아요</td>
         </tr>
         <tr v-for="li in adminList" :key="li" tr class="tr" @click="goToDetail(li)">
-          <td style="width: 60px">{{ li.post_no}}</td> <td style="width: 200px">{{ li.title }}</td> <td>{{ li.content }}</td><td style="width: 60px">{{ li.name }}</td><td style="width: 150px">{{ li.sendtime }}</td><td style="width: 60px">{{ li.good }}</td>
+          <td style="width: 60px">{{ li.post_no}}</td> <td style="width: 200px">{{ li.title }}</td> <td>{{ li.content }}</td><td style="width: 60px">{{ li.name }}</td><td style="width: 150px">{{ formatTime(li.sendtime) }}</td><td style="width: 60px">{{ li.good }}</td>
         </tr>
       </table>
       <!-- 봉사관리 true 일 경우 표출 -->
@@ -223,6 +223,16 @@ export default {
     },
     gogo(){
       
+    },
+    formatTime(timeString) {
+      const date = new Date(timeString);
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+      const day = date.getDate().toString().padStart(2, '0');
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      const seconds = date.getSeconds().toString().padStart(2, '0');
+      return `${year}년 ${month}월 ${day}일 ${hours}:${minutes}:${seconds}`;
     }
   },
   setup() {
