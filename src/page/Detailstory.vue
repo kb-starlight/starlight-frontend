@@ -13,8 +13,10 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   mounted(){
+    this.memberNo = this.$route.params.member_no;
     this.ckadmin()
   },
   data() {
@@ -27,21 +29,34 @@ export default {
   },
   methods: {
     del(a){
-      alert(a);
+      let url = "http://localhost:3000/delstory";
+      const obj = {post_no:a};
+
+      axios.post(url,obj)
+      .then(res=>{
+        console.log(res);
+        console.log(res.data.mes);
+        if(res.data.mes==1){
+          alert('정상적으로 삭제되었습니다.')
+          this.$router.push('/story');
+        }else{
+          alert('삭제 중 오류가 발생하였습니다.')
+        }
+      })
     },
+
     fnList() { // 리스트 화면으로 이동
       this.$router.push('/story');
     },
     ckadmin(){
       if(this.$store.getters.getUserInfo[0]&&this.$store.getters.getUserInfo[0].member_no==5000){
         this.admin = true;
-        alert('관리자 접속');
+        // alert('관리자 접속');
       }else{
-        if(this.$store.getters.getUserInfo[0]&&this.$store.getters.getUserInfo[0].member_no==$route.params.member_no){
-          this.admin = true;
-          alert('작성자 접속');
-        }
-      }
+        if(this.$store.getters.getUserInfo[0]&&this.$store.getters.getUserInfo[0].member_no==this.memberNo){
+        this.admin = true;
+        // alert('작성자 접속');
+         }}
     },
   }
 };
