@@ -11,14 +11,14 @@
     <tr>
       <td class="green00" style="width: 90%;">아이디</td>
       <td class="table1">
-        &nbsp;
-        <input type="text" v-model="id" :disabled="id_check" class="textbox" />
+ 
+        <input type="text" v-model="id"  class="textbox" />
       </td>
     </tr>
     <tr>
       <td class="green00">비밀번호</td>
       <td class="table1">
-        &nbsp; <input type="password" v-model="pw" class="textbox" />
+       <input type="password" v-model="pw" class="textbox" />
       </td>
     </tr>
     <tr>
