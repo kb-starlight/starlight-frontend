@@ -1,4 +1,9 @@
 <template>
+ <img src="@/assets/gopher.png" class="falling-image" style="width: 100px; height: auto; left: 10%; animation-delay: 0s;"/>
+ <img src="@/assets/gopher.png" class="falling-image" style="width: 100px; height: auto; left: 30%; animation-delay: 2s;"/>
+ <img src="@/assets/gopher.png" class="falling-image" style="width: 100px; height: auto; left: 50%; animation-delay: 1s;"/>
+ <img src="@/assets/gopher.png" class="falling-image" style="width: 100px; height: auto; left: 70%; animation-delay: 0s;"/>
+ <img src="@/assets/gopher.png" class="falling-image" style="width: 100px; height: auto; left: 90%; animation-delay: 1s;"/>
   <h1 style="margin-top: 70px" class="limited-quantity">[한정 수량] 펄이 T-SHIRT (4 TYPES)</h1>
   <h1 class="sell">예!약!판!매!</h1>
   <h2>1. 스타라이트 로고 티셔츠</h2>
@@ -66,4 +71,29 @@ export default {
     opacity: 0; /* 끝 상태는 안 보이게 함 */
   }
 }
+/* 하늘에서 떨어지는 이미지에 애니메이션 적용 */
+.falling-image {
+  animation: fall 4s ease forwards, rotate 6s linear infinite; /* 회전 애니메이션 추가 */
+  position: absolute;
+  top: -200px; /* 이미지가 시작되는 위치 조절 */
+  left: 50%; /* 이미지의 가로 중앙 정렬 */
+  transform: translateX(-50%);
+}
+
+@keyframes fall {
+  to {
+    top: 80vh; /* 이미지가 떨어지는 위치 조절 */
+    opacity: 0; /* 떨어진 후 투명해지도록 설정 */
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); /* 회전 시작 각도 */
+  }
+  to {
+    transform: rotate(360deg); /* 회전 끝 각도 */
+  }
+}
+
 </style>
