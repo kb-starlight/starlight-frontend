@@ -4,7 +4,7 @@
   <div style="margin-top: 120px"></div>
   <img src="@/assets/whiteLogo.png" /> <br /><br />
 
-  <table class="table2" style=" width: 150px">
+  <table class="table2" >
     <tr>
       <td class="green1" colspan="2">로그인</td>
     </tr>
@@ -36,6 +36,8 @@
       </td>
     </tr>
   </table>
+  <br>  <br>  <br>  <br>  <br>
+
 </template>
 
 <script>
@@ -137,17 +139,18 @@ button:hover {
 }
 
 .table2 {
-  width: 150px;
+  width: 550px;
   margin: auto;
 }
 .green {
   text-align: center;
-  width: 150px;
+  width: 500px;
   height: 30px;
   color: #111;
 }
 
 .green1 {
+  width: 300px;
   text-align: center;
   background-color: #b2fa5c;
   color: #111;
