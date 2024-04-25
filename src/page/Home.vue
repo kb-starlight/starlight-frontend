@@ -50,28 +50,13 @@
         </div>
         <div>
           <h3 class="h3_left"><span><router-link to="/volunteer" class="router-link">봉사모집 ></router-link></span></h3>
-          <div class="cards-container">
-            <preview-card
-              image="https://happybean-phinf.pstatic.net/20240409_264/1712655980919qzyYF_PNG/7.%25A9%25E1%25A8%25E1%25B5%25E1.png?type=a360"
-              label="Label1"
-              description="Description1"
-            />
-            <preview-card
-              image="https://happybean-phinf.pstatic.net/20240409_27/1712656032520SkIPW_PNG/8.%25A6%25E1%25B3%25E1%25A1%25E1.png?type=a360"
-              label="Label2"
-              description="Description2"
-            />
-            <preview-card
-              image="https://happybean-phinf.pstatic.net/20240409_239/1712656062181JJiqi_PNG/9.%25A1%25E1%25AC%25E1%25A9%25E1.png?type=a360"
-              label="Label3"
-              description="Description3"
-            />
-            <preview-card
-              image="https://happybean-phinf.pstatic.net/20240409_239/1712656062181JJiqi_PNG/9.%25A1%25E1%25AC%25E1%25A9%25E1.png?type=a360"
-              label="Label3"
-              description="Description3"
-            />
-          </div>
+          <div class="cards-container" style="margin-top: 30px">
+              <a href="https://happybean.naver.com/campaign/dreambase"><img src="@/assets/봉사게시판이미지1.png"  /> </a> 
+              <a href="https://happybean.naver.com/template/campaign/2405withcong"><img src="@/assets/봉사게시판이미지2.png"  /> </a> 
+              <a href="https://happybean.naver.com/campaign/2024greenweek"><img src="@/assets/봉사게시판이미지3.png"  /> </a> 
+              <a href="https://happybean.naver.com/campaign/earthday2024"><img src="@/assets/봉사게시판이미지4.png"  /> </a> 
+              <a href="https://happybean.naver.com/project/2929"><img src="@/assets/봉사게시판이미지5.png"  /> </a> 
+            </div>
         </div>
         <div>
           <h3 class="h3_left"><span><router-link to="/company" class="router-link">진행중인 제휴업체 ></router-link></span></h3>
