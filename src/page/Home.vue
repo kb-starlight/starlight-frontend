@@ -28,22 +28,22 @@
           <div class="cards-container">
             <preview-card
               image="https://happybean-phinf.pstatic.net/20240409_243/1712656139366lY24E_PNG/4.%25A1%25E1%25BC%25E1%25A9%25E1%25A8%25E1%25A5%25E1.png?type=a360"
-              label="Label1"
+              label="설을 맞아 함께 만든 인절미"
               description="Description1"
             />
             <preview-card
               image="https://happybean-phinf.pstatic.net/20240409_84/1712656161293toLYm_PNG/5.%25A6%25E1%25AB%25E1%25A6%25E1%25B3%25E1%25A6%25E1%25B5%25E1%25B3%25E1.png?type=a360"
-              label="Label2"
+              label="원장님께 전하는 감사의 마음"
               description="Description2"
             />
             <preview-card
               image="https://happybean-phinf.pstatic.net/20240409_242/1712656181657O4qMe_PNG/6.%25A6%25E1%25A5%25E1%25B3%25E1%25A6%25E1%25B5%25E1%25B3%25E1%25A9%25E1%25B5%25E1%25A1%25E1%25B3%25E1.png?type=a360"
-              label="Label3"
+              label="시각 장애인들이 만든 가방"
               description="Description3"
             />
             <preview-card
               image="https://happybean-phinf.pstatic.net/20240409_239/1712656062181JJiqi_PNG/9.%25A1%25E1%25AC%25E1%25A9%25E1.png?type=a360"
-              label="Label3"
+              label="요리사가 되고싶은 세앙이"
               description="Description3"
             />
           </div>

@@ -3,36 +3,35 @@
   <img style="margin-top: 80px" src="@/assets/whiteLogo.png" />
   <h1>- 회원가입 -</h1>
 
-  <table class="table">
+  <table class="table3">
     <tr>
-      <td class="green1" colspan="2">회원 기본정보</td>
+      <td class="green11" colspan="2">회원 기본정보</td>
     </tr>
     <tr>
-      <td class="green">아이디</td>
-      <td class="table1">
+      <td class="green00">아이디</td>
+      <td class="table11">
         &nbsp;
-        <input type="text" v-model="id" :disabled="id_check" class="textbox" />
+        <input type="text" v-model="id" :disabled="id_check" class="textbox5" />
         <button @click="ck_id">중복확인</button>
         <span class="notice1" v-if="checkid"
           >4~12자의 영문 대소문자와 숫자로 입력</span
         >
-        <span class="notice" v-if="!checkid">사용가능한 아이디입니다.</span>
+        <span class="notice" v-if="!checkid"> 사용가능한 아이디입니다.</span>
       </td>
     </tr>
     <tr>
-      <td class="green">비밀번호</td>
-      <td class="table1">
-        &nbsp; <input type="password" v-model="pw" class="textbox" />
-        <span class="notice1" v-if="checkpw"
-          >4~12자의 영문 대소문자와 숫자로 입력</span
+      <td class="green00">비밀번호</td>
+      <td class="table11">
+        &nbsp; <input type="password" v-model="pw" class="textbox5" />
+        <span class="notice1" v-if="checkpw"> 4~12자의 영문 대소문자와 숫자로 입력</span
         >
-        <span class="notice" v-if="!checkpw">사용가능한 비밀번호입니다.</span>
+        <span class="notice" v-if="!checkpw"> 사용가능한 비밀번호입니다.</span>
       </td>
     </tr>
     <tr>
-      <td class="green">비밀번호 확인</td>
-      <td class="table1">
-        &nbsp; <input type="password" v-model="ckpw" class="textbox" /><span
+      <td class="green00">비밀번호 확인</td>
+      <td class="table11">
+        &nbsp; <input type="password" v-model="ckpw" class="textbox5" /><span
           class="notice1"
           v-if="checkpassword"
         >
@@ -44,9 +43,9 @@
       </td>
     </tr>
     <tr>
-      <td class="green">메일 주소</td>
-      <td class="table1">
-        &nbsp; <input type="text" v-model="email" class="textbox" /><span
+      <td class="green00">메일 주소</td>
+      <td class="table11">
+        &nbsp; <input type="text" v-model="email" class="textbox5" /><span
           class="notice"
         >
           예 ) id@domain.com</span
@@ -58,9 +57,9 @@
     </tr>
 
     <tr>
-      <td class="green">이름</td>
-      <td class="table1">
-        &nbsp; <input type="text" v-model="name" class="textbox" />
+      <td class="green00">이름</td>
+      <td class="table11">
+        &nbsp; <input type="text" v-model="name" class="textbox5" />
         <span class="notice"> 이름은 한글만 입력 가능합니다.</span>
         <span class="notice1" v-if="!ckName">
           이름이 형식에 맞지 않습니다.</span
@@ -68,9 +67,9 @@
       </td>
     </tr>
     <tr>
-      <td class="green">생년월일</td>
-      <td class="table1">
-        &nbsp; <input type="text" v-model="idNum" class="textbox" /><span
+      <td class="green00">생년월일</td>
+      <td class="table11">
+        &nbsp; <input type="text" v-model="idNum" class="textbox5" /><span
           class="notice"
         >
           ex) 20241231
@@ -80,9 +79,9 @@
     </tr>
 
     <tr>
-      <td class="green">휴대전화번호</td>
-      <td class="table1">
-        &nbsp; <input type="text" v-model="phone" class="textbox" /><span
+      <td class="green00">휴대전화번호</td>
+      <td class="table11">
+        &nbsp; <input type="text" v-model="phone" class="textbox5" /><span
           class="notice"
         >
           예) 01012345678</span
@@ -325,11 +324,11 @@ button:hover {
   transform: scale(1.05); /* 버튼을 약간 크게 만듦 */
 }
 
-.table {
+.table3 {
   width: 1000px;
   margin: auto;
 }
-.green {
+.green00 {
   background-color: #fafaa0;
   text-align: center;
   width: 200px;
@@ -337,7 +336,7 @@ button:hover {
   font-size: 25px;
 }
 
-.green1 {
+.green11 {
   text-align: center;
   background-color: #b2fa5c;
   color: black;
@@ -349,7 +348,7 @@ button:hover {
   text-align: center;
 }
 
-.table1 {
+.table11 {
   text-align: left;
   background-color: White;
 }
@@ -360,7 +359,7 @@ button:hover {
 .notice1 {
   color: #b9062f;
 }
-.textbox {
+.textbox5 {
   width: 270px;
   height: 30px;
 }
