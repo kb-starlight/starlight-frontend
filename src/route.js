@@ -12,6 +12,7 @@ import Newstory from "./page/Newstory.vue";
 import kakao from "./page/KakaoLogin.vue";
 import Detailstory from "./page/Detailstory.vue";
 import goods from "./page/goods.vue";
+import newVolunteer from "./page/NewVolunteer.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomePage },
@@ -25,6 +26,7 @@ const routes = [
   { path: "/Newstory", name: "Newstory", component: Newstory },
   { path: "/ka", name: "kakao", component: kakao },
   { path: "/goods", name: "goods", component: goods },
+  { path: "/newVolunteer", name: "newVolunteer", component: newVolunteer },
   // { path: "/Detailstory/:id", name: "Detailstory", component: Detailstory },
   { path: "/Detailstory/:title/:content/:sendtime/:post_no", name: "Detailstory", component: Detailstory },
 ];
