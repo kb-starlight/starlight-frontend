@@ -1,4 +1,42 @@
 <template>
+  <!-- 모달 창 -->
+  <div class="modal-overlay" v-if="showModalFlag">
+  <div class="modal" >
+      <div class="modal-content">
+        <span class="close" @click="closeModal"> &times;</span>
+        <h3>{{ mem_name }} 회원관리</h3>
+        <table class="modalTable">
+          <tr>
+            <td style="width: 30%;" >회원번호</td><td>{{ mem_no }}</td>
+          </tr>
+          <tr>
+            <td>이름</td><td>{{ mem_name }}</td>
+          </tr>
+          <tr>
+            <td>아이디</td><td>{{ memId }}</td>
+          </tr>
+          <tr>
+            <td>온도</td><td>{{ memTemp }}</td>
+          </tr>
+          <tr>
+            <td>스타</td><td>{{ memStar }}</td>
+          </tr>
+          <tr>
+            <td>노쇼횟수</td><td>{{ memNoShow }}</td>
+          </tr>
+          <tr>
+            <td>차단여부</td><td>{{ memStatus }}</td>
+          </tr>
+        </table> 
+        <br>
+         <div> <button @click="update(4, 'Y', mem_no)"> 회원 차단 </button>  <button @click="update(4, '', mem_no)"> 회원 차단 해제 </button>  
+          <button  @click="update(3,memNoShow+1 , mem_no)" >노쇼 횟수 추가</button><br> 
+          <button @click="update(1,memStar+1 , mem_no)"> 스타 올려주기 </button>  <button @click="update(1,memStar-1 , mem_no)"> 스타 내리기 </button> 
+          <button @click="update(2,memTemp+1 , mem_no)"> 온도 올려주기 </button>  <button @click="update(2,memTemp-1 , mem_no)"> 온도 내리기 </button> </div> 
+      </div>
+    </div>
+  </div>
+
   <!-- 관리자로 로그인시 보이는 페이지 -->
   <div class="back" v-if="admin">
   <div class="admin" >
@@ -10,7 +48,7 @@
         <tr class="tr">
           <td>회원번호</td> <td >회원명</td> <td>회원 아이디</td><td>전화번호</td><td>이메일</td><td>온도</td><td >스타</td><td >노쇼횟수</td><td >차단</td>
         </tr>
-        <tr v-for="li in adminList" :key="li" tr class="tr" @click="gogo(li.member_no)">
+        <tr v-for="li in adminList" :key="li" tr class="tr" @click="showModal(li)">
           <td>{{ li.member_no}}</td> <td>{{ li.name }}</td> <td>{{ li.id }}</td><td>{{ li.phone }}</td><td>{{ li.email }}</td><td>{{ li.temp }}</td><td>{{ li.star }}</td><td>{{ li.noshowcount }}</td><td>{{ li.status }}</td>
         </tr>
       </table>
@@ -90,7 +128,15 @@ export default {
   },
   data() {
     return {
+      mem_no:'',
+      mem_name:'',
+      memId:'',
+      memStar:'',
+      memTemp:'',
+      memNoShow:'',
+      memStatus:'',
       control:true,
+      showModalFlag: false,
       image: {
         0: Lv1,
         1: Lv1,
@@ -124,7 +170,55 @@ export default {
     }
   },
   methods:{
-  goToDetail(post) {
+    showModal(a) {
+      this.mem_no=a.member_no;
+      this.mem_name=a.name;
+      this.memId=a.id;
+      this.memStar=a.star;
+      this.memTemp=a.temp;
+      this.memNoShow=a.noshowcount;
+      this.memStatus=a.status;
+      this.showModalFlag = true;
+    },
+
+    //a => 수정할 컬럼
+    //b => 수정할 데이터
+    //c => 수정할 회원의 회원번호
+    update(a, b, c){
+      let url = "http://localhost:3000/admin";
+      if(c==5000){
+        alert('관리자의 회원정보는 수정할 수 없습니다.');
+        this.showModalFlag = false;
+        return;
+      }
+      const obj = {
+        column:a,
+        after:b,
+        member_no:c
+      };
+      axios.post(url,obj)
+      .then(res=>{
+        console.log(res);
+        console.log(res.data.mes);
+        if(res.data.mes==1){
+          alert('정상적으로 처리되었습니다.')
+          this.bt1();
+          this.showModalFlag = false;
+          this.$router.push('/mypage');
+        }else{
+          alert('처리 중 오류가 발생하였습니다.')
+        }
+      })
+    },
+
+
+
+
+    closeModal() {
+      this.showModalFlag = false;
+   
+    },
+    goToDetail(post) {
       this.$router.push({ name: 'Detailstory', params: { title: post.title, content: post.content, sendtime: post.sendtime, post_no: post.post_no, member_no : post.member_no }});
     },
     open(a){
@@ -221,9 +315,7 @@ export default {
         }
       });
     },
-    gogo(){
-      
-    },
+   
     formatTime(timeString) {
       const date = new Date(timeString);
       const year = date.getFullYear();
@@ -312,5 +404,56 @@ strong {
   background-color: #F7F7F7;
   margin: auto;
   overflow: auto;
+}
+.modal-overlay {
+  position: fixed;
+  z-index: 1000; /* 다른 요소보다 위에 표시할 값 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* 반투명한 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  height: 50%;
+  max-width: 800px;
+  align-items: center;
+  position: relative; /* 상대적 위치 설정 */
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.modalTable {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse; /* 테이블 셀 경계를 합침 */
+  margin-top: 20px;
+}
+
+.modalTable th, .modalTable td {
+  border: 1px solid #ccc; /* 테이블 셀 테두리 스타일 지정 */
+  padding: 8px; /* 셀 내부 여백 설정 */
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 </style>
