@@ -6,8 +6,9 @@
     <p class="text-muted">{{ formatTime($route.params.sendtime) }}</p>
     <div class="button-wrap">
       <button @click="fnList" class="btn cancel">목록</button>
-      <!-- <button class="btn edit">수정</button> -->
-      <button class="btn delete" v-if="admin" @click="del($route.params.post_no)">삭제</button>
+      <button class="btn edit" @click="goMypage" v-if="admin">마이페이지</button>
+
+      <button class="btn delete" v-if="admin||writer" @click="del($route.params.post_no)">삭제</button>
     </div>
   </div>
 </template>
@@ -43,6 +44,9 @@ export default {
         }
       })
     },
+    goMypage(){
+      this.$router.push('/mypage');
+    },
     fnList() { // 리스트 화면으로 이동
       this.$router.push('/story');
     },
@@ -51,7 +55,7 @@ export default {
         this.admin = true;
       }else{
         if(this.$store.getters.getUserInfo[0]&&this.$store.getters.getUserInfo[0].member_no==this.memberNo){
-        this.admin = true;
+        this.writer = true;
         }
       }
     },

@@ -2,7 +2,7 @@
   <!-- 관리자로 로그인시 보이는 페이지 -->
   <div class="back" v-if="admin">
   <div class="admin" >
-    <h2>관리자 페이지 test용</h2>
+    <h2>관리자 페이지</h2>
     <button @click="bt1"> 회원 관리 </button> <button @click="bt2"> 게시글 관리 </button> <button @click="bt3"> 봉사 관리 </button> <br>   <br>
     <div class="div1">
       <h4 v-if="adminList.length==0"> 원하는 메뉴를 선택하세요 </h4>
@@ -19,7 +19,7 @@
         <tr class="tr">
           <td>게시글 번호</td> <td >제목</td> <td>내용</td><td>작성자</td><td>작성시간</td><td>좋아요</td>
         </tr>
-        <tr v-for="li in adminList" :key="li" tr class="tr" @click="a">
+        <tr v-for="li in adminList" :key="li" tr class="tr" @click="goToDetail(li)">
           <td style="width: 60px">{{ li.post_no}}</td> <td style="width: 200px">{{ li.title }}</td> <td>{{ li.content }}</td><td style="width: 60px">{{ li.name }}</td><td style="width: 150px">{{ li.sendtime }}</td><td style="width: 60px">{{ li.good }}</td>
         </tr>
       </table>
@@ -28,7 +28,7 @@
         <tr class="tr">
           <td>봉사 번호</td> <td >봉사명</td> <td>내용</td>
         </tr>
-        <tr v-for="li, i in adminList" :key="li" tr class="tr" @click="a">
+        <tr v-for="li, i in adminList" :key="li" tr class="tr" @click="goToDetail(li)">
           <td style="width: 80px">{{i+1}}</td> <td style="width: 300px">{{ li.title }}</td> <td>{{ li.content }}</td>
         </tr>
       </table>
@@ -124,6 +124,9 @@ export default {
     }
   },
   methods:{
+  goToDetail(post) {
+      this.$router.push({ name: 'Detailstory', params: { title: post.title, content: post.content, sendtime: post.sendtime, post_no: post.post_no, member_no : post.member_no }});
+    },
     open(a){
       let url = "http://localhost:3000/viewPost?post_no=" + a;
       axios.get(url).then((res) => {
