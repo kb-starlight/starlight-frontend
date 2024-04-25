@@ -10,6 +10,7 @@
       <router-link to="/volunteer">봉사모집</router-link>
       <router-link to="/company">제휴업체</router-link>
       <router-link to="/goods">굿즈</router-link>
+      <router-link to="/whackamole">게임</router-link>
       
     </div>
 
@@ -94,6 +95,8 @@ export default {
 
   height: 70px;
   padding: 0 20px;
+  margin-top: -40px;
+  
 }
 .header_right_container,
 .header_center_container {
