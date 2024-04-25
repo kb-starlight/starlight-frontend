@@ -6,7 +6,7 @@
     <button @click="bt1"> 회원 관리 </button> <button @click="bt2"> 게시글 관리 </button> <button @click="bt3"> 봉사 관리 </button> <br>   <br>
     <div class="div1">
       <h4 v-if="adminList.length==0"> 원하는 메뉴를 선택하세요 </h4>
-      <table class="table1" v-if="mem" >
+      <table class="table111" v-if="mem" >
         <tr class="tr">
           <td>회원번호</td> <td >회원명</td> <td>회원 아이디</td><td>전화번호</td><td>이메일</td><td>온도</td><td >스타</td><td >노쇼횟수</td><td >차단</td>
         </tr>
@@ -15,7 +15,7 @@
         </tr>
       </table>
       <!-- 게시글 관리 true 일 경우 표출 -->
-      <table class="table1" v-if="post1" >
+      <table class="table111" v-if="post1" >
         <tr class="tr">
           <td>게시글 번호</td> <td >제목</td> <td>내용</td><td>작성자</td><td>작성시간</td><td>좋아요</td>
         </tr>
@@ -24,7 +24,7 @@
         </tr>
       </table>
       <!-- 봉사관리 true 일 경우 표출 -->
-      <table class="table1" v-if="val" >
+      <table class="table111" v-if="val" >
         <tr class="tr">
           <td>봉사 번호</td> <td >봉사명</td> <td>내용</td>
         </tr>
@@ -59,8 +59,9 @@
     </div>
   </div>
   <br><h3><span>내가 올린 게시글</span></h3>
+  <div class="centered-table">
   <h4 v-if="list1.length==0"> 올린 게시물 없음 </h4>
-  <table class="table" v-else>
+  <table class="table20" v-else>
   <tr class="tr">
     <td class="td1">게시물 번호</td> <td  class="td2">제목</td>  <td  class="td2">내용</td>
   </tr>
@@ -68,7 +69,7 @@
     <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
   </tr>
 </table>
-  
+</div>
 </div>
 </template>
 
@@ -269,12 +270,13 @@ strong {
   width: 100%;
   height: 800px;
 }
-.table{
+.table20{
   width: 60%;
   background-color: #F7F7F7;
   border-collapse: collapse;
+  
 }
-.table1{
+.table111{
   width: 100%;
   background-color: #F7F7F7;
   border-collapse: collapse;
