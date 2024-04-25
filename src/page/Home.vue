@@ -1,6 +1,7 @@
 <template>
   <div>
     <SlideView />
+    <Popup v-if="homePopupView" @setParent="closeStartPopup"/>
     <div class="mainkeyword-wrap">
       <ul class="mainkeyword-list">
         <li class="mainkeyword-item">
@@ -113,14 +114,27 @@
 <script>
 import PreviewCard from "@/components/PreviewCard.vue";
 import SlideView from "../components/SideView.vue";
+import Popup from "@/page/popup.vue";
 
 
 export default {
   name: "HomePage",
+  data() {
+    return {
+      homePopupView: true
+    }
+  },
   components: {
     SlideView,
     PreviewCard,
+    Popup,
   },
+  methods: {
+    closeStartPopup() {
+      this.homePopupView = false;
+    }
+  }
+  
 };
 </script>
 <style scoped>
