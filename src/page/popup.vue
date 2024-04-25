@@ -1,7 +1,7 @@
 <template>
   <div class="background_outter">
     <div class="background_inner">
-      <img class="startPopupImg" src="@/assets/1.png" alt="사진">
+      <router-link to="/goods"><img class="startPopupImg" src="@/assets/1.png" alt="사진"></router-link>
       <input type="button" class="closeButton" value="닫기" @click="popupClose" />
     </div>
   </div>

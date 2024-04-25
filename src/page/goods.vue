@@ -1,5 +1,5 @@
 <template>
-  <h1 style="margin-top: 70px">[한정 수량] 펄이 T-SHIRT (4 TYPES)</h1>
+  <h1 style="margin-top: 70px" class="limited-quantity">[한정 수량] 펄이 T-SHIRT (4 TYPES)</h1>
   <br />
   <h2>1. 스타라이트 로고 티셔츠</h2>
   <img src="@/assets/셔츠1.png" /><br />
@@ -17,6 +17,7 @@
     L (어깨 55/ 가슴 60/ 소매 29 / 총기장 75 cm)<br />
     사이즈는 측정 방법에 따라 다를 수 있습니다.<br /><br>
     의류 소재의 특성상 보관 및 세탁방법에 따라 제품의 수축, 늘어짐이 발생할 수 있습니다.
+
   </div>
 
 <div style="text-align: left; padding-left: 50px; border: 1px solid #ccc; border-radius: 5px; margin-top: 100px; font-size: 17px">
@@ -34,6 +35,7 @@
   -불량 및 누락의 정확한 확인을 위해 개봉 영상은 필수로 촬영 부탁드립니다.<br />
   -배송 오류, 파손, 불량 등 상품 결함 등이 있을 경우 고객센터로 연락 부탁드리며, 재고 소진의 경우 재발송이 어렵습니다.<br /></p></div>
 </template>
+
 <script>
 export default {
   name: "goods",
@@ -43,3 +45,19 @@ export default {
   components: {},
 };
 </script>
+
+<style>
+.limited-quantity {
+  /* 다른 스타일들은 그대로 유지하고, 한정수량 글씨에만 반짝임 효과를 추가 */
+  animation: blink 2s infinite alternate; /* blink 애니메이션을 적용하여 1초 간격으로 반짝거리게 함 */
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1; /* 처음 상태는 보이게 함 */
+  }
+  100% {
+    opacity: 0; /* 끝 상태는 안 보이게 함 */
+  }
+}
+</style>
