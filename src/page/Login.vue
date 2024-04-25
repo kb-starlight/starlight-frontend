@@ -32,7 +32,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <img src="@/assets/kakaoLogin.png" style="cursor: pointer;" @click="loginStart">
+        <img src="@/assets/kakaoLogin.png" style="cursor: pointer;" class="button" @click="loginStart">
       </td>
     </tr>
   </table>
@@ -169,4 +169,5 @@ button:hover {
   padding: 5px;
   font-size: 16px;
 }
+
 </style>

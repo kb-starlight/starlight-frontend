@@ -2,8 +2,8 @@
   <div class="container" style="margin-top: 70px;">
     <h2>{{ $route.params.title }}</h2>
     <p>{{ $route.params.content }}</p>
-    <p class="text-muted">{{ $route.params.sendtime }}</p>
     <hr class="my-4">
+    <p class="text-muted">{{ formatTime($route.params.sendtime) }}</p>
     <div class="button-wrap">
       <button @click="fnList" class="btn cancel">목록</button>
       <!-- <button class="btn edit">수정</button> -->
@@ -31,7 +31,6 @@ export default {
     del(a){
       let url = "http://localhost:3000/delstory";
       const obj = {post_no:a};
-
       axios.post(url,obj)
       .then(res=>{
         console.log(res);
@@ -44,20 +43,28 @@ export default {
         }
       })
     },
-
     fnList() { // 리스트 화면으로 이동
       this.$router.push('/story');
     },
     ckadmin(){
       if(this.$store.getters.getUserInfo[0]&&this.$store.getters.getUserInfo[0].member_no==5000){
         this.admin = true;
-        // alert('관리자 접속');
       }else{
         if(this.$store.getters.getUserInfo[0]&&this.$store.getters.getUserInfo[0].member_no==this.memberNo){
         this.admin = true;
-        // alert('작성자 접속');
-         }}
+        }
+      }
     },
+    formatTime(timeString) {
+      const date = new Date(timeString);
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+      const day = date.getDate().toString().padStart(2, '0');
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      const seconds = date.getSeconds().toString().padStart(2, '0');
+      return `${year}년 ${month}월 ${day}일 ${hours}시 ${minutes}분 ${seconds}초`;
+    }
   }
 };
 </script>
@@ -121,8 +128,4 @@ hr {
   background-color: #d9534f;
   color: #fff;
 }
-</style>0.0
-
-
-
-.
+</style>
