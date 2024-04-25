@@ -3,7 +3,7 @@
   <div class="back" v-if="admin">
   <div class="admin" >
     <h2>관리자 페이지</h2>
-    <button @click="bt1"> 회원 관리 </button> <button @click="bt2"> 게시글 관리 </button> <button @click="d"> 봉사 관리 </button> <br>   <br>
+    <button @click="bt1"> 회원 관리 </button> <button @click="bt2"> 게시글 관리 </button> <button @click="bt3"> 봉사 관리 </button> <br>   <br>
     <div class="div1">
       <h4 v-if="adminList.length==0"> 원하는 메뉴를 선택하세요 </h4>
       <table class="table1" v-if="mem" >
@@ -20,10 +20,21 @@
           <td>게시글 번호</td> <td >제목</td> <td>내용</td><td>작성자</td><td>작성시간</td><td>좋아요</td>
         </tr>
         <tr v-for="li in adminList" :key="li" tr class="tr" @click="a">
-          <td style="width: 60px">{{ li.post_no}}</td> <td style="width: 200px">{{ li.title }}</td> <td>{{ li.content }}</td><td style="width: 60px">{{ li.name }}</td><td style="width: 150px">{{ li.sendtime }}</td><td style="width: 60px">{{ li.good }}</td>
+          <td style="width: 60px">{{ li.post_no}}</td> <td style="width: 250px">{{ li.title }}</td> <td>{{ li.content }}</td><td style="width: 60px">{{ li.name }}</td><td style="width: 150px">{{ li.sendtime }}</td><td style="width: 60px">{{ li.good }}</td>
+        </tr>
+      </table>
+      <!-- 봉사관리 true 일 경우 표출 -->
+      <table class="table1" v-if="val" >
+        <tr class="tr">
+          <td>봉사 번호</td> <td >봉사명</td> <td>내용</td>
+        </tr>
+        <tr v-for="li, i in adminList" :key="li" tr class="tr" @click="a">
+          <td style="width: 80px">{{i+1}}</td> <td style="width: 200px">{{ li.title }}</td> <td>{{ li.content }}</td>
         </tr>
       </table>
     </div>
+    <br>
+    <button @click="addvol" v-if="val"> 봉사 등록 </button> <br>
   </div>
   </div>
   <!-- 여기부터 일반 회원이 로그인시에 보이는 페이지 -->
@@ -90,6 +101,7 @@ export default {
       admin: false,
       post1:false,
       mem: false,
+      val:false,
       list1:[],
       list2:[],
       adminList:[],
@@ -151,11 +163,22 @@ export default {
       this.setMember();
       this.mem=true;
       this.post1=false;
+      this.val=false;
     },
     bt2(){
       this.mem=false;
       this.post1=true;
+      this.val=false;
       this.setPost();
+    },
+    bt3(){
+      this.mem=false;
+      this.post1=false;
+      this.val = true,
+      this.setVolunteer();
+    },
+    addvol(){
+      this.$router.push('/newVolunteer');
     },
     setMember(){
       let url = "http://localhost:3000/allMem";
@@ -171,6 +194,18 @@ export default {
     },
     setPost(){
       let url = "http://localhost:3000/allPost";
+      axios.get(url)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.state == "none") {
+        } else {
+          this.adminList = res.data.info;
+          console.log(this.adminList);
+        }
+      });
+    },
+    setVolunteer(){
+      let url = "http://localhost:3000/volunteer";
       axios.get(url)
       .then((res) => {
         console.log(res.data);
