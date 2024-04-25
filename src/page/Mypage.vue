@@ -71,6 +71,7 @@
   
 </div>
 </template>
+
 <script>
 import axios from "axios";
 import Lv1 from "../assets/Lv1.png";
