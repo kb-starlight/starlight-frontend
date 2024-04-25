@@ -20,7 +20,7 @@
           <td>게시글 번호</td> <td >제목</td> <td>내용</td><td>작성자</td><td>작성시간</td><td>좋아요</td>
         </tr>
         <tr v-for="li in adminList" :key="li" tr class="tr" @click="a">
-          <td style="width: 60px">{{ li.post_no}}</td> <td style="width: 250px">{{ li.title }}</td> <td>{{ li.content }}</td><td style="width: 60px">{{ li.name }}</td><td style="width: 150px">{{ li.sendtime }}</td><td style="width: 60px">{{ li.good }}</td>
+          <td style="width: 60px">{{ li.post_no}}</td> <td style="width: 200px">{{ li.title }}</td> <td>{{ li.content }}</td><td style="width: 60px">{{ li.name }}</td><td style="width: 150px">{{ li.sendtime }}</td><td style="width: 60px">{{ li.good }}</td>
         </tr>
       </table>
       <!-- 봉사관리 true 일 경우 표출 -->
@@ -29,7 +29,7 @@
           <td>봉사 번호</td> <td >봉사명</td> <td>내용</td>
         </tr>
         <tr v-for="li, i in adminList" :key="li" tr class="tr" @click="a">
-          <td style="width: 80px">{{i+1}}</td> <td style="width: 200px">{{ li.title }}</td> <td>{{ li.content }}</td>
+          <td style="width: 80px">{{i+1}}</td> <td style="width: 300px">{{ li.title }}</td> <td>{{ li.content }}</td>
         </tr>
       </table>
     </div>
