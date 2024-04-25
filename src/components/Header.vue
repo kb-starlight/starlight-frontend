@@ -9,6 +9,8 @@
       <router-link to="/story">사연</router-link>
       <router-link to="/volunteer">봉사모집</router-link>
       <router-link to="/company">제휴업체</router-link>
+      <router-link to="/goods">굿즈</router-link>
+      
     </div>
 
     <div class="header_right_container">
