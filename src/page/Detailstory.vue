@@ -7,27 +7,42 @@
     <div class="button-wrap">
       <button @click="fnList" class="btn cancel">목록</button>
       <!-- <button class="btn edit">수정</button> -->
-      <button @click="delete_btn" class="btn delete">삭제</button>
+      <button class="btn delete" v-if="admin" @click="del($route.params.post_no)">삭제</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  mounted(){
+    this.ckadmin()
+  },
   data() {
     return {
       posts: [],
       memberNo: 1,
+      admin: false,
+      writer: false,
     };
   },
   methods: {
+    del(a){
+      alert(a);
+    },
     fnList() { // 리스트 화면으로 이동
       this.$router.push('/story');
     },
-
-    delete_btn() {
-      
-    }
+    ckadmin(){
+      if(this.$store.getters.getUserInfo[0]&&this.$store.getters.getUserInfo[0].member_no==5000){
+        this.admin = true;
+        alert('관리자 접속');
+      }else{
+        if(this.$store.getters.getUserInfo[0]&&this.$store.getters.getUserInfo[0].member_no==$route.params.member_no){
+          this.admin = true;
+          alert('작성자 접속');
+        }
+      }
+    },
   }
 };
 </script>

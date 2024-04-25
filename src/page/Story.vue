@@ -87,7 +87,7 @@ export default {
   },
   methods: {
     goToDetail(post) {
-      this.$router.push({ name: 'Detailstory', params: { title: post.title, content: post.content, sendtime: post.sendtime, post_no: post.post_no} });
+      this.$router.push({ name: 'Detailstory', params: { title: post.title, content: post.content, sendtime: post.sendtime, post_no: post.post_no, member_no : post.member_no }});
     },
     write() {
       if(this.$store.getters.getUserInfo[0]){

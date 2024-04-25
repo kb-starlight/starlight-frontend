@@ -87,7 +87,7 @@ methods: {
       console.log(res);
       this.email = res.data.kakao_account.email;
       console.log(this.email);
-
+        
       let url = "http://localhost:3000/ckem?email=" + this.email;
       axios.get(url).then((res) => {
         console.log(res.data);
