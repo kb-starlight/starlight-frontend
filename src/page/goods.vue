@@ -9,16 +9,15 @@
   <img src="@/assets/셔츠3.png" /><br />
   <h2>4. 봉사왕 펄이 티셔츠</h2>
   <img src="@/assets/셔츠4.png" /><br />
-  <p style="font-size: 20px">
+  <div style="font-size: 20px; font-weight: bold;">
     판매가 30,000원<br /><br />
 
     사이즈 안내 (M/L)<br />
     M (어깨 50/ 가슴 56/ 소매 27 / 총기장 73 cm)<br />
     L (어깨 55/ 가슴 60/ 소매 29 / 총기장 75 cm)<br />
-    -사이즈는 측정 방법에 따라 다를 수 있습니다.<br />
-    -의류 소재의 특성상 보관 및 세탁방법에 따라 제품의 수축,늘어짐이 발생할 수
-    있습니다.
-  </p>
+    사이즈는 측정 방법에 따라 다를 수 있습니다.<br /><br>
+    의류 소재의 특성상 보관 및 세탁방법에 따라 제품의 수축, 늘어짐이 발생할 수 있습니다.
+  </div>
 
 <div style="text-align: left; padding-left: 50px; border: 1px solid #ccc; border-radius: 5px; margin-top: 100px; font-size: 17px">
 <p>
