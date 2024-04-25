@@ -1,7 +1,7 @@
 <template>
-  <div> 
-    <h2>봉사 목록 </h2>
-  <table class="table" v-if="list.length!=0" >
+  <h2>봉사 목록 </h2>
+  <div class="centered-table"> 
+  <table class="tablevol" v-if="list.length!=0" >
   <tr class="tr">
     <td  style="width: 1px;">게시물 번호</td> <td  style="width: 80px;">제목</td>  <td  class="td2">내용</td>
   </tr>
@@ -48,3 +48,16 @@ export default {
   },
 };
 </script>
+<style>
+.tablevol{
+  width: 60%;
+  background-color: #F7F7F7;
+  border-collapse: collapse; 
+}
+.centered-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+</style>
