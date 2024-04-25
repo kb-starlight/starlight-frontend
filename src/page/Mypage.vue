@@ -101,9 +101,9 @@
   <h4 v-if="list1.length==0"> 올린 게시물 없음 </h4>
   <table class="table20" v-else>
   <tr class="tr">
-    <td class="td1">게시물 번호</td> <td  class="td2">제목</td>  <td  class="td2">내용</td>
+    <td class="td1" style="width: 13%;">게시물 번호</td> <td  class="td2" style="width: 30%;">제목</td>  <td  class="td2">내용</td>
   </tr>
-  <tr v-for="li in list1" :key="li" tr class="tr" >
+  <tr v-for="li in list1" :key="li" tr class="tr"   @click="goToDetail(li)">
     <td>{{ li.post_no}}</td> <td>{{ li.title }}</td> <td>{{ li.content }}</td>
   </tr>
 </table>
@@ -139,10 +139,10 @@ export default {
       showModalFlag: false,
       image: {
         0: Lv1,
-        1: Lv1,
-        2: Lv2,
-        3: Lv3,
-        4: Lv4,
+        1: Lv2,
+        2: Lv3,
+        3: Lv4,
+        4: Lv5,
         5: Lv5
       },
       login: false,
@@ -162,7 +162,7 @@ export default {
     },
     setLevel(){
       const lv = Math.floor(this.memList[0].temp/5);
-      if(lv>5){
+      if(lv>4){
         return this.image[5];
       }else{
       return this.image[lv];
