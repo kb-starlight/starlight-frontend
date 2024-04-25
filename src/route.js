@@ -28,7 +28,7 @@ const routes = [
   { path: "/goods", name: "goods", component: goods },
   { path: "/newVolunteer", name: "newVolunteer", component: newVolunteer },
   // { path: "/Detailstory/:id", name: "Detailstory", component: Detailstory },
-  { path: "/Detailstory/:title/:content/:sendtime/:post_no", name: "Detailstory", component: Detailstory },
+  { path: "/Detailstory/:title/:content/:sendtime/:post_no/:member_no", name: "Detailstory", component: Detailstory },
 ];
 
 const router = createRouter({

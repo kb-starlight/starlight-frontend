@@ -9,7 +9,7 @@
           </div>
           <div class="form-group">
             <label for="content">내용</label><br>
-            <textarea v-model="post.content" id="content" placeholder="내용을 입력하세요" class="content-textarea"></textarea>
+            <textarea v-model="post.content" id="content" placeholder="내용을 입력하세요. (게시물은 수정,삭제가 불가하오니 글을 읽는 이웃들을 위해 비방/욕설은 자제 부탁드립니다.)" class="content-textarea"></textarea>
           </div>
         </form>
       </div>
