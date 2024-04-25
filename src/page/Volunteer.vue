@@ -28,7 +28,7 @@ export default {
   },
   methods:{
     goToDetail(post) {
-      this.$router.push({ name: 'Detailstory', params: { title: post.title, content: post.content, sendtime: post.sendtime, post_no: post.post_no} });
+      this.$router.push({ name: 'Detailstory', params: { title: post.title, content: post.content, sendtime: post.sendtime, post_no: post.post_no, member_no: post.member_no }});
     },
     getList(){
       let url = "http://localhost:3000/volunteer";
